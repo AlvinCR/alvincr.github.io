@@ -5,13 +5,10 @@
     <entry>
         <title></title>
         <url>http://example.com/2021/01/14/test/</url>
-        <content type="html"><![CDATA[<p>an into this problem at the beginning, until I followed the official website tutorial completely after the 404 interface was completed, thinking that maybe because of the server delay, I will create another one and wait a minute. As a result, when I created it with alvincasper.github.io There is no such problem. You can access directly.</p>
-<p><img src="/.com//word-image-82.png" alt="img"></p>
-<p>In addition, I re-created alvincr.github.io and it is still invalid, so I think that the user name must be used when creating a blog with github, and other names are invalid.</p>
-<p>But this conclusion is too sloppy, so I re-apply for an account and try two more names to create a blog to see if it succeeds.</p>
-<h2 id="2-Recreate-account"><a href="#2-Recreate-account" class="headerlink" title="2 Recreate account"></a>2 Recreate account</h2><p>Reason: Question 1</p>
+        <content type="html"><![CDATA[<h2 id="2-Recreate-account"><a href="#2-Recreate-account" class="headerlink" title="2 Recreate account"></a>2 Recreate account</h2><p>Reason: Question 1</p>
 <p>I tried to rebuild the account and found that alvincasper.github.io could be established. However, this alvincasper.github.io has been used by another account of mine, so I can be completely sure that creating a blog on github can only be created with a user name, other names are No way.</p>
 <p><img src="/.com//word-image-83.png" alt="img"></p>
+<h2 id="3-GitHub-Pages-is-currently-disabled"><a href="#3-GitHub-Pages-is-currently-disabled" class="headerlink" title="3 GitHub Pages is currently disabled"></a>3 GitHub Pages is currently disabled</h2><p>Since the account I used at the beginning was an account I create</p>
 ]]></content>
         
         
@@ -102,62 +99,6 @@
             <tag> Pages </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-        <title></title>
-        <url>http://example.com/2021/01/14/0%2520-%2520%25E5%2589%25AF%25E6%259C%25AC%2520(8)/</url>
-        <content type="html"></content>
-        
-        
-    </entry>
-    
-    <entry>
-        <title></title>
-        <url>http://example.com/2021/01/14/0%2520-%2520%25E5%2589%25AF%25E6%259C%25AC%2520(7)/</url>
-        <content type="html"></content>
-        
-        
-    </entry>
-    
-    <entry>
-        <title></title>
-        <url>http://example.com/2021/01/14/0%2520-%2520%25E5%2589%25AF%25E6%259C%25AC%2520(6)/</url>
-        <content type="html"></content>
-        
-        
-    </entry>
-    
-    <entry>
-        <title></title>
-        <url>http://example.com/2021/01/14/0%2520-%2520%25E5%2589%25AF%25E6%259C%25AC%2520(5)/</url>
-        <content type="html"></content>
-        
-        
-    </entry>
-    
-    <entry>
-        <title></title>
-        <url>http://example.com/2021/01/14/0%2520-%2520%25E5%2589%25AF%25E6%259C%25AC%2520(4)/</url>
-        <content type="html"></content>
-        
-        
-    </entry>
-    
-    <entry>
-        <title></title>
-        <url>http://example.com/2021/01/14/0%2520-%2520%25E5%2589%25AF%25E6%259C%25AC%2520(3)/</url>
-        <content type="html"></content>
-        
-        
-    </entry>
-    
-    <entry>
-        <title></title>
-        <url>http://example.com/2021/01/14/0%2520-%2520%25E5%2589%25AF%25E6%259C%25AC%2520(2)/</url>
-        <content type="html"></content>
-        
         
     </entry>
     
