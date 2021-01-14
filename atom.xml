@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-14T12:53:53.906Z</updated>
+  <updated>2021-01-14T13:03:09.859Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2021/01/14/test/"/>
+    <id>http://example.com/2021/01/14/test/</id>
+    <published>2021-01-14T13:00:20.311Z</published>
+    <updated>2021-01-14T13:03:09.859Z</updated>
+    
+    <content type="html"><![CDATA[<p>an into this problem at the beginning, until I followed the official website tutorial completely after the 404 interface was completed, thinking that maybe because of the server delay, I will create another one and wait a minute. As a result, when I created it with alvincasper.github.io There is no such problem. You can access directly.</p><p><img src="/.com//word-image-82.png" alt="img"></p><p>In addition, I re-created alvincr.github.io and it is still invalid, so I think that the user name must be used when creating a blog with github, and other names are invalid.</p><p>But this conclusion is too sloppy, so I re-apply for an account and try two more names to create a blog to see if it succeeds.</p><h2 id="2-Recreate-account"><a href="#2-Recreate-account" class="headerlink" title="2 Recreate account"></a>2 Recreate account</h2><p>Reason: Question 1</p><p>I tried to rebuild the account and found that alvincasper.github.io could be established. However, this alvincasper.github.io has been used by another account of mine, so I can be completely sure that creating a blog on github can only be created with a user name, other names are No way.</p><p><img src="/.com//word-image-83.png" alt="img"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;an into this problem at the beginning, until I followed the official website tutorial completely after the 404 interface was completed, t</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>The whole process of registering and using GitHub Pages</title>
