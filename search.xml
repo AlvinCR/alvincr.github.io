@@ -3,13 +3,20 @@
     
     
     <entry>
+        <title><![CDATA[123]]></title>
+        <url>http://example.com/2021/01/14/123/</url>
+        <content type="html"></content>
+        
+        
+    </entry>
+    
+    <entry>
         <title></title>
         <url>http://example.com/2021/01/14/test/</url>
         <content type="html"><![CDATA[<h2 id="2-Recreate-account"><a href="#2-Recreate-account" class="headerlink" title="2 Recreate account"></a>2 Recreate account</h2><p>Reason: Question 1</p>
 <p>I tried to rebuild the account and found that alvincasper.github.io could be established. However, this alvincasper.github.io has been used by another account of mine, so I can be completely sure that creating a blog on github can only be created with a user name, other names are No way.</p>
-<p><img src="/.com//word-image-83.png" alt="img"></p>
-<h2 id="3-GitHub-Pages-is-currently-disabled"><a href="#3-GitHub-Pages-is-currently-disabled" class="headerlink" title="3 GitHub Pages is currently disabled"></a>3 GitHub Pages is currently disabled</h2><p>Since the account I used at the beginning was an account I create</p>
-]]></content>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-83.png" alt="img"></p>
+<h2 id="3-GitHub-Pages-is-c"><a href="#3-GitHub-Pages-is-c" class="headerlink" title="3 GitHub Pages is c"></a>3 GitHub Pages is c</h2>]]></content>
         
         
     </entry>
@@ -17,7 +24,7 @@
     <entry>
         <title><![CDATA[The whole process of registering and using GitHub Pages]]></title>
         <url>http://example.com/2021/01/14/The-whole-process-of-registering-and-using-GitHub-Pages/</url>
-        <content type="html"><![CDATA[<h1 id="1-background-knowledge"><a href="#1-background-knowledge" class="headerlink" title="1 background knowledge"></a><strong>1 background knowledge</strong></h1><p>If there is something unclear about the steps in my article, you can refer to the official website below. All contents have detailed answers to the norms.</p>
+        <content type="html"><![CDATA[<h1 id="1-background-knowledge"><a href="#1-background-knowledge" class="headerlink" title="1 background knowledge"></a><strong>1 background knowledge</strong></h1><p>If there is something unclear about the steps in my article, you can refer to the official website below. All content has detailed answers to the norms.</p>
 <p><a href="https://github.com/">Official website address</a> : <a href="https://github.com/">https://github.com/</a></p>
 <p><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site">Tutorial address</a> : <a href="https://docs.github.com/en/">https://docs.github.com/en/</a> free-pro-team@latest /github/working-with-github-pages/creating-a-github-pages-site</p>
 <p>First To register github account, <a href="https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=/&source=header-home">registered address</a> in accordance with the registration process on the line.</p>
@@ -41,46 +48,46 @@
 <p><img src="/.com//unnamed-file-1.png" alt="Drop-down menu to select the folder used to publish the source"></p>
 <p>Click <strong>save</strong> .</p>
 <p><img src="/.com//unnamed-file-2.png" alt="Button to save changes to the publishing source settings"></p>
-<h2 id="4-Choose-a-theme"><a href="#4-Choose-a-theme" class="headerlink" title="4 Choose a theme"></a>4 Choose a theme</h2><p><img src="/.com//word-image-71.png" alt="img"></p>
+<h2 id="4-Choose-a-theme"><a href="#4-Choose-a-theme" class="headerlink" title="4 Choose a theme"></a>4 Choose a theme</h2><p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-71.png" alt="img"></p>
 <p>The theme selected here can be downloaded or not.</p>
 <h1 id="3Set-up-using-GitHub-client"><a href="#3Set-up-using-GitHub-client" class="headerlink" title="3Set up using GitHub client"></a>3Set up using GitHub client</h1><h2 id="1-Clone-the-warehouse"><a href="#1-Clone-the-warehouse" class="headerlink" title="1 Clone the warehouse"></a>1 Clone the warehouse</h2><p>Shortcut key ctrl+shift+o</p>
 <p><img src="/.com//word-image-72.png" alt="img"></p>
 <p>Select the library to be cloned, and then clone it locally.</p>
 <p><img src="/.com//word-image-73.png" alt="img"></p>
 <h2 id="2-Clean-up-files"><a href="#2-Clean-up-files" class="headerlink" title="2 Clean up files"></a>2 Clean up files</h2><p>Only keep .git files, delete all others</p>
-<p><img src="/.com//word-image-74.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-74.png" alt="img"></p>
 <h2 id="3-Download-the-creation-template"><a href="#3-Download-the-creation-template" class="headerlink" title="3 Download the creation template"></a>3 Download the creation template</h2><p>You can use the template in 2.4, or you can download the new template yourself, of course, you can also hand-write the entire web page. The personal blog alvincr.com will put a few templates I selected at the end of this article.</p>
 <p><a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a></p>
 <p><a href="https://html5up.net/">https://html5up.net/</a></p>
 <h2 id="4-Upload-template"><a href="#4-Upload-template" class="headerlink" title="4 Upload template"></a>4 Upload template</h2><p>After downloading, unzip to the cloned folder</p>
-<p><img src="/.com//word-image-75.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-75.png" alt="img"></p>
 <p>You can see the changes in the GitHub desktop version. Fill in the content at places 1 and 2 in the figure. (For example alvincr.com), click commit to mian to submit</p>
-<p><img src="/.com//word-image-76.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-76.png" alt="img"></p>
 <h2 id="5-Push-to-github"><a href="#5-Push-to-github" class="headerlink" title="5 Push to github"></a>5 Push to github</h2><p>Click Push origin, the push progress will be displayed in the upper right corner, just wait for completion.</p>
-<p><img src="/.com//word-image-77.png" alt="img"></p>
-<p><img src="/.com//word-image-78.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-77.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-78.png" alt="img"></p>
 <h2 id="6-Push-effect"><a href="#6-Push-effect" class="headerlink" title="6 Push effect"></a>6 Push effect</h2><p>Unsuccessful push will show:</p>
-<p><img src="/.com//word-image-79.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-79.png" alt="img"></p>
 <p>Successful push will successfully enter the theme interface, the display effect is as follows:</p>
-<p><img src="/.com//word-image-80.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-80.png" alt="img"></p>
 <h1 id="4-questions"><a href="#4-questions" class="headerlink" title="4 questions"></a>4 questions</h1><h2 id="1-Cannot-enter-the-blog-after-selecting-a-topic"><a href="#1-Cannot-enter-the-blog-after-selecting-a-topic" class="headerlink" title="1 Cannot enter the blog after selecting a topic"></a>1 Cannot enter the blog after selecting a topic</h2><p>Enter alvincr.github.io and you will see the following 404 interface, indicating that there is no GitHub Pages website. If you want to publish it, please read the complete documentation to learn how to set up GitHub Pages for your repository, organization or user account.</p>
-<p><img src="/.com//word-image-81.png" alt="img"></p>
-<p>I ran into this problem at the beginning, until I followed the official website tutorial completely after the 404 interface was completed, thinking that maybe because of the server delay, I will create another one and wait a minute. As a result, when I created it with alvincasper.github.io There is no such problem. You can access directly.</p>
-<p><img src="/.com//word-image-82.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-81.png" alt="img"></p>
+<p>I ran into this problem at the beginning, until I followed the official website tutorial completely after the 404 interface was completed, thinking that maybe it was because the server was delayed, and then I created another one and waited, but when I created it with alvincasper.github.io There is no such problem. You can access directly.</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-82.png" alt="img"></p>
 <p>In addition, I re-created alvincr.github.io and it is still invalid, so I think that the user name must be used when creating a blog with github, and other names are invalid.</p>
-<p>But this conclusion is too sloppy, so I re-apply for an account and try two more names to create a blog to see if it succeeds.</p>
+<p>But this conclusion is too sloppy, so I re-apply for an account, and then try to create a blog with two names to see if it will succeed.</p>
 <h2 id="2-Recreate-account"><a href="#2-Recreate-account" class="headerlink" title="2 Recreate account"></a>2 Recreate account</h2><p>Reason: Question 1</p>
 <p>I tried to rebuild the account and found that alvincasper.github.io could be established. However, this alvincasper.github.io has been used by another account of mine, so I can be completely sure that creating a blog on github can only be created with a user name, other names are No way.</p>
-<p><img src="/.com//word-image-83.png" alt="img"></p>
-<h2 id="3-GitHub-Pages-is-currently-disabled"><a href="#3-GitHub-Pages-is-currently-disabled" class="headerlink" title="3 GitHub Pages is currently disabled"></a>3 GitHub Pages is currently disabled</h2><p>Since the account I used at the beginning was an account I created a long time ago, there was no problem with this newly created account.</p>
-<p>But if you add README and other files during the precautions in the second step of this article (create a new github blog), this should not happen</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-83.png" alt="img"></p>
+<h2 id="3-GitHub-Pages-is-currently-disabled"><a href="#3-GitHub-Pages-is-currently-disabled" class="headerlink" title="3 GitHub Pages is currently disabled"></a>3 GitHub Pages is currently disabled</h2><p>Since the account I used at the beginning was an account I created very early, there was no problem with this newly created account.</p>
+<p>However, if you add README and other files during the precautions in the second step of this article (creating a new github blog), this should not happen.</p>
 <p>The solution to the problem is as follows:</p>
 <p>Click on the red arrow to create a new directory</p>
-<p><img src="/.com//word-image-84.png" alt="img">+</p>
-<p>Click the figure 1 below (edit new file) to enter the content at will, and then click 3 to submit the file to solve it.</p>
-<p><img src="/.com//word-image-85.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-84.png" alt="img">+</p>
+<p>Click (edit new file) as shown in Figure 1 below and enter the content at will, and then click 3 to submit the file to solve it.</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-85.png" alt="img"></p>
 <p>Effect picture:</p>
-<p><img src="/.com//word-image-86.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2021/01/word-image-86.png" alt="img"></p>
 ]]></content>
         
         <categories>
