@@ -89,22 +89,570 @@
     </entry>
     
     <entry>
-        <title><![CDATA[This just a module]]></title>
-        <url>http://example.com/2020/01/14/module/</url>
+        <title></title>
+        <url>http://example.com/2021/01/14/module/</url>
         <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
+        
+        
+    </entry>
+    
+    <entry>
+        <title><![CDATA[Linux prevention of accidental deletion operations (use safe-rm; use mv command to delete files, accidental deletion recovery method)]]></title>
+        <url>http://example.com/2020/06/27/Linux%2520prevention%2520of%2520accidental%2520deletion%2520operations/</url>
+        <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p>The update will be included in the original text: <a href="http://alvincr.com/2020/06/linux%E9%98%B2%E8%AF%AF%E5%88%A0%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BD%BF%E7%94%A8safe-rm%EF%BC%9B%E4%BD%BF%E7%94%A8mv%E5%91%BD%E4%BB%A4%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%89%EF%BC%88%E6%9B%B4/">http://alvincr.com/2020/06/linux%e9%98%b2%e8%af%af%e5%88%a0%e6%93%8d%e4%bd%9c   %ef%bc%88%e4%bd%bf%e7%94%a8safe-rm%ef%bc%9b%e4%bd%bf%e7%94%a8mv%e5%91%bd%e4%bb%a4  %e5%88%a0%e9%99%a4%e6%96%87%e4%bb%b6%ef%bc%89%ef%bc%88%e6%9b%b4/ </a></p>
+<h1 id="1-Why-does-text-based-Linux-have-no-recycle-bin"><a href="#1-Why-does-text-based-Linux-have-no-recycle-bin" class="headerlink" title="1. Why does text-based Linux have no recycle bin?"></a>1. Why does text-based Linux have no recycle bin?</h1><p>In my opinion: </p>
+<p>1.Linux is a command line operating system. Unlike the graphical  interface of win, linux cannot easily recover files quickly. For  example, using mv under linux can achieve the same effect as the recycle bin under win, but no one uses mv+file name+ The path method actually  only needs to create a folder named trash in the root directory, which  can fully realize the function of the recycle bin. What is the specific  reason for not using mv? I personally think that it is because of  inconvenience and use Most Linux users are not computer novices, and  generally know what they are doing. </p>
+<p>\2. When linux deletes a file, if you use rm -r, there will be a  prompt whether to delete it, similar to the simple recycle bin of win10, but it does not store it, but you need to directly confirm whether the  file is deleted. (A lot of materials are taught to use rm -rf when  writing code now) </p>
+<p>Views of others: </p>
+<p>\1. </p>
+<blockquote>
+<p>The tree-shaped file system is not compatible with the recycle bin.  Could it be that the eighteenth-level directories are deleted, and when  restoring from the recycle bin, restore the entire directory structure  again? Most of the things turned out from the trash can in daily life  are useless. It is precisely because the operation of deleting a file  from the computer does not change the content of the file itself, what  is thrown in the trash can can be used again. The problem now is that in fact we only have one form of file system, which is tree-shaped. This  is neither necessary nor convenient for storing personal files. We  should remove the tree file system. Only keep the index function in  BeFS. Deleting a file just marks the file. When the disk space is full, I will prompt you to delete the file.  <a href="https://www.zhihu.com/question/32294243/answer/135858069">https://www.zhihu.com/question/32294243/answer/135858069</a> </p>
+</blockquote>
+<p>\2. </p>
+<blockquote>
+<p>original: </p>
+<p>I think you may be sadly uninformed about what is and OS and what is a GUI. </p>
+<p>When using the CLI in either Windows or Linux the delete/rm command  does in fact immediately delete a file. And there are utilities that can attempt to recover such files if used immediatel after the mistake  happens. </p>
+<p>Every GUI I have seen in Linux does have a trash can. Linux GUIs I  have seen also come with backup software and if they don’t a script file using rsync isn’t hard to write/find in order to efficiently backup the drives. </p>
+<p>You might read this rather dated article about how to use the trashcan even from the CLI. </p>
+<p><a href="https://linuxtipstricks.wordpress.com/2009/05/16/how-to-manage-trash-can-or-recycle-bin-in-linux-desktop-graphic-environment/">How to manage Trash can or Recycle bin in Linux Desktop graphic environment </a></p>
+<p>translation: </p>
+<p>When using CLI in Windows or Linux, the delete /rm command actually  does delete the file immediately. And, if the utility is used  immediately after the error occurs, they can try to recover such files. </p>
+<p>Every GUI I see in Linux has a trash can. The Linux GUIs I have seen also come with backup software, if they don’t use rsync to write script files, it’s not difficult to write/find in order to effectively backup  the drive. </p>
+</blockquote>
+<p>\3. The following view is similar to mine </p>
+<blockquote>
+<p>original: </p>
+<p>linux was generally for competent users…you can delete a file and ask for cofirmation rm -i filename. </p>
+<p>also a competent user has backups…so even if most files got removed it would be ok </p>
+<p>but if a library was removed or something like that, then you are in trouble. as you dont back these things up..and it may make your system  unworkable …that said you can easily with a little bit of know how  chroot into your system or you can use a live dvd and reinstall the  library. </p>
+<p>bottom line is once you use linux for a while you will delete required files…but chances are …you will only do this once. </p>
+<p>linux is made to be used from command line and in windows if you  delete something from command line i dont even think there is a dustbin. </p>
+<p>translation: </p>
+<p>Linux is usually suitable for capable users… You can delete files and ask for confirmation rm -i filename. </p>
+<p>A capable user also has backups…so it doesn’t matter even if most files are deleted </p>
+<p>However, if you delete a library or a similar library, you will run  into trouble. Because you do not back up these contents, this may make  your system not work properly… This means that you can easily import  the chroot into the system, or you can use a live DVD and reinstall the  library. </p>
+<p>The most important thing is that once you use linux for a while, you will delete the files you need…but most likely…you will only do it  once. </p>
+<p>Linux is used from the command line, in Windows, if you delete  something from the command line, I don’t even think there is a trash  can. </p>
+</blockquote>
+<h1 id="2-Use-the-safe-rm-package"><a href="#2-Use-the-safe-rm-package" class="headerlink" title="2. Use the safe-rm package"></a>2. Use the safe-rm package</h1><p>It is not recommended for users who are familiar with Linux to use this method, this article only provides ideas </p>
+<p>Safe-rm is a security tool designed to prevent accidental deletion of important files by replacing /bin/rm with a packaging program that will perform a blacklist of configurable files and directories that will  never delete given parameters with an examination. </p>
+<p>wget <a href="https://launchpad.net/safe-rm/trunk/0.12/+download/safe-rm-0.12.tar.gz">https://launchpad.net/safe-rm/trunk/0.12/+download/safe-rm-0.12.tar.gz</a> </p>
+<p>tar -xzvf safe-rm-0.12.tar.gz </p>
+<p>cd safe-rm-0.12 </p>
+<p>vi /etc/profile You can add the PATH path in the last line: PATH=/usr/local/bin:$PATH </p>
+<p>source /etc/profile </p>
+<p>vi /etc/safe-rm.conf </p>
+<p>Then enter the directory of the folder that needs to be protected </p>
+<p><img src="/2020/06/27/Linux%20prevention%20of%20accidental%20deletion%20operations/aHR0cDovL2FsdmluY3IuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDIwLzA2L2U2MDY0ZmMyNmViYjNjYzBkM2JlODUwODM2ZWU5MTViLnBuZw.png" alt="img"></p>
+<blockquote>
+<p><strong>Note:</strong> Writing this way can prevent the deletion of  common files in the test directory and the test directory, but it cannot prevent the link files in the test directory from being deleted.  Therefore like <code>/lib</code>or <code>/lib64</code>, directories , there will be a lot of link files to library files underneath, and <strong>using <code>safe-rm</code>them does not protect the files</strong> . (Reference:  <a href="https://linuxgeeks.github.io/2015/11/25/172103-%E4%BD%BF%E7%94%A8safe-rm%E9%81%BF%E5%85%8Drm%E5%">https://linuxgeeks.github.io/2015/11/25/172103-%E4%BD%BF%E7%94%A8safe-rm%E9%81%BF%E5%85%8Drm%E5%</a> 91%BD%E4%BB%A4%E8%AF%AF%E5%88%A0%E6%96%87%E4%BB%B6/, Remarks: The  method of the reference website can be implemented on my machine.  Question, it is not recommended to read the original text) </p>
+</blockquote>
+<h2 id="1-2-Effect"><a href="#1-2-Effect" class="headerlink" title="1.2 Effect:  "></a>1.2 Effect:  <img src="/2020/06/27/Linux%20prevention%20of%20accidental%20deletion%20operations/aHR0cDovL2FsdmluY3IuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDIwLzA2LzMzNGQ2ZmFmNmZiODlkZDEwOTFmMGRkMDQ3M2ViM2NmLnBuZw.png" alt="img"></h2><h1 id="3-Disable-the-rm-command-and-use-the-mv-command-instead"><a href="#3-Disable-the-rm-command-and-use-the-mv-command-instead" class="headerlink" title="3. Disable the rm command and use the mv command instead"></a>3. Disable the rm command and use the mv command instead</h1><p>It is not recommended for users who are familiar with Linux to use this method, this article only provides ideas </p>
+<h1 id="4-Recovery-tool-extundelete"><a href="#4-Recovery-tool-extundelete" class="headerlink" title="4. Recovery tool extundelete"></a>4. Recovery tool extundelete</h1><h2 id="4-1-Recovery-principle"><a href="#4-1-Recovery-principle" class="headerlink" title="4.1 Recovery principle:"></a>4.1 Recovery principle:</h2><blockquote>
+<p>Under Linux, you can use the “ls -id” command to view the inode  value of a file or directory. For example, to view the inode value of  the root directory, you can enter: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud1 ~]# ls -id  &#x2F; 2 &#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>It can be seen that the inode value of the root directory is 2. </p>
+<p>When using extundelete to restore files, it does not rely on a  specific file format. First, extundelete will use the inode information  of the file system (the inode of the root directory is generally 2) to  obtain the information of all files under the current file system,  including existing and deleted files , This information includes file  name and inode. Then use the inode information combined with the log to  query the block location where the inode is located, including direct  block, indirect block and other information. Finally, use the dd command to back up the information to restore the data file. </p>
+</blockquote>
+<p>Reference: <a href="https://blog.csdn.net/coco3600/article/details/100232811">https://blog.csdn.net/coco3600/article/details/100232811</a> </p>
+<h2 id="4-2-Installation-and-use"><a href="#4-2-Installation-and-use" class="headerlink" title="4.2 Installation and use"></a>4.2 Installation and use</h2><p>Common open source recovery tools are: debugfs, R-Linux, ext3grep,  extundelete, the following is the extundelete operation method </p>
+<blockquote>
+<p><strong>1. Install dependencies</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install e2fsprogs-devel gcc</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. Unzip the toolkit</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar jxf extundelete-0.2.4.tar.bz2</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. Specify the installation directory, compile, compile and install</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure ; make ; make install</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>use</strong> </p>
+<p><strong>Common parameters:</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--after dtime            时间参数，表示在某段时间之后被删除的文件或目录</span><br><span class="line">--before dtime           时间参数，表示在某段时间之前被删除的文件或目录</span><br><span class="line">--inode ino              显示节点 ino 的信息</span><br><span class="line">--block blk              显示数据块 blk 的信息</span><br><span class="line">--restore-inode ino      表示恢复节点 ino 的文件，用来恢复单个文件</span><br><span class="line">--restore-file path      表示恢复指定路径下的文件，用来恢复目录下所有文件</span><br><span class="line">--restore-all            表示恢复所有被删除的目录跟文件</span><br></pre></td></tr></table></figure>
+
+<p><strong>Start the recovery process:</strong> </p>
+<p><strong>1. Find the directory id of the deleted file</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -id &#x2F;xxx&#x2F;xxx&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>Note: The leftmost output is the ID number. </p>
+<p><strong>2. View the deleted upper directory inode</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># extundelete 所在分区名称 --inode ID号</span><br><span class="line">extundelete &#x2F;dev&#x2F;sdb1 --inode 130619</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. Restore data, restore all deleted data in the specified directory</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># extundelete 数据所在分区名称 --restore-directory 恢复数据的目录</span><br><span class="line">extundelete &#x2F;dev&#x2F;sdb1 --restore-directory &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. Complete the follow-up work of recovery</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 恢复数据后，会把恢复数据送到当前路径的RECOVERED_FILES&#x2F;内，再把恢复的数据拿回原处</span><br><span class="line">cp RECOVERED_FILES&#x2F;xxx&#x2F;xxx&#x2F;* &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;</span><br></pre></td></tr></table></figure>
+<p>Method source: <a href="https://www.cnblogs.com/xiangsikai/p/10779457.html">https://www.cnblogs.com/xiangsikai/p/10779457.html</a> <a href="https://www.cnblogs.com/xiangsikai/p/10779457.html">https://www.cnblogs.com/xiangsikai/p/10779457.html</a> </p>
+</blockquote>
+]]></content>
         
         <categories>
             
-            <category> Web building </category>
+            <category> linux </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> register </tag>
+            <tag> linux </tag>
             
-            <tag> Pages </tag>
+            <tag> delete </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+        <title><![CDATA[Differences between dynamic webpages, pseudo-static and static webpages and related knowledge]]></title>
+        <url>http://example.com/2020/05/24/dynamic%2520webpages,%2520pseudo-static%2520and%2520static%2520/</url>
+        <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p><img src="/2020/05/24/dynamic%20webpages,%20pseudo-static%20and%20static%20/image-20210116124426414.png" alt="image-20210116124426414"></p>
+<h1 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h1><h2 id="1-1-Dynamic-webpage"><a href="#1-1-Dynamic-webpage" class="headerlink" title="1.1 Dynamic webpage"></a>1.1 Dynamic webpage</h2><blockquote>
+<p><strong>Dynamic webpage</strong> is a collective term for all  dynamically generated and dynamically updated webpages. Contrary to  traditional static web pages, it will generate different web pages due  to changes in variables. This may be a web page generated on the server  side, a web page generated on the user side, or a mixture of the two. </p>
+<p>The dynamic web page on the server side refers server through the <a href="https://zh.wikipedia.org/wiki/%E6%87%89%E7%94%A8%E7%A8%8B%E5%BC%8F%E4%BC%BA%E6%9C%8D%E5%99%A8">application server </a>processing the server side <a href="https://zh.wikipedia.org/wiki/%E8%84%9A%E6%9C%AC">script </a>to the web page generated by the . The parameters passed by the server to  the script determine how each web page is generated, sometimes including how to generate more user-side scripts. Common implementation methods  are <a href="https://zh.wikipedia.org/wiki/PHP">PHP </a>, <a href="https://zh.wikipedia.org/wiki/Active_Server_Pages">Active Server Pages </a>(Asp), and <a href="https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3">Common Gateway Interface </a>(CGI). After the server-side script is executed, the generated web page is a  standard HTML page, and all server-side scripts will not be passed to  the client. </p>
+<p>The dynamic webpage on the user side is processed when the browser loads the webpage. <a href="https://zh.wikipedia.org/wiki/JavaScript">JavaScript </a>and other scripting languages determine how the received HTML is embedded in the <a href="https://zh.wikipedia.org/wiki/%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B">Document Object Model </a>(DOM). These scripting languages can also dynamically update or change the original <a href="https://zh.wikipedia.org/wiki/%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B">document object model </a>. </p>
+</blockquote>
+<p>Summary: A dynamic web page is a web page that changes with  operation, generated by a script, and may be a mixture of server-side  and user-side. </p>
+<h2 id="1-2-Pseudo-static-webpage"><a href="#1-2-Pseudo-static-webpage" class="headerlink" title="1.2 Pseudo-static webpage"></a>1.2 Pseudo-static webpage</h2><blockquote>
+<p>Pseudo-static is relative to the real static. Usually, in order to enhance <a href="https://baike.baidu.com/item/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/104812">search engines </a>the friendliness of , we generate static pages of article content, but some friends display some information in real time. Or I want to use dynamic scripts to solve some problems. Do not use static methods to display  website content. But this loses the friendliness of search engines. How  to find an intermediate method between the two? This produces  pseudo-static technology. Pseudo-static technology means that the  display is in the form of static pages such as html, but it is actually  processed by dynamic scripts such as ASP. </p>
+</blockquote>
+<p>Summary: Use dynamic scripts to process static pages and generate pages. </p>
+<p>Note: Pseudo-static only changes the form of URL, but it is actually a dynamic page </p>
+<h2 id="1-3-Static-webpage"><a href="#1-3-Static-webpage" class="headerlink" title="1.3 Static webpage"></a>1.3 Static webpage</h2><blockquote>
+<p>Static pages, namely static pages, is real, without going through the <a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8/100571">server </a>is <a href="https://baike.baidu.com/item/%E7%BC%96%E8%AF%91/1258343">compiled </a>, loaded directly to the client <a href="https://baike.baidu.com/item/%E6%B5%8F%E8%A7%88%E5%99%A8/213911">browser </a>is displayed on. Static pages need to occupy a certain amount of server  space, and can not independently manage and publish updated pages. If  you want to update the content of the web page, you must download  through the <a href="https://baike.baidu.com/item/FTP/13839">FTP </a>the file software and use the web page creation software to modify (except  for technologies such as fso). Examples of common static pages: .html  extension, .htm extension. </p>
+</blockquote>
+<p>Summary: We often see static web pages ending with html in our  downloads. They have not undergone plastic surgery since they were born, and they have always been like that. </p>
+<h1 id="2-The-advantages-disadvantages-and-characteristics-of-various-web-pages"><a href="#2-The-advantages-disadvantages-and-characteristics-of-various-web-pages" class="headerlink" title="2. The advantages, disadvantages and characteristics of various web pages"></a>2. The advantages, disadvantages and characteristics of various web pages</h1><h2 id="2-1-Dynamic-web-pages"><a href="#2-1-Dynamic-web-pages" class="headerlink" title="2.1 Dynamic web pages"></a>2.1 Dynamic web pages</h2><p>Advantages: easy to maintain, easy to query data, small storage resources </p>
+<p>Disadvantages: not conducive to search engine inclusion, high production cost, and need for maintenance </p>
+<blockquote>
+<p>Not conducive to inclusion: usually dynamic scripts need certain  information to return the page content, the most common such as Cookie  data, SessionID or an environment variable. But for search engine Spider programs, it is impossible for them to know how to use your search  function or what questions to ask. Because of this, Spider’s retrieval  of websites often has to stop before a dynamic site. In addition, a  question mark (?) and a percent sign (%) are included in the URL of the  dynamic page. There are also symbols such as &amp;,%, + and $ which are  often seen in the URL of a dynamic page. Such URLs are called  “environmental variables” (querystring). However, most SPIDERs cannot  interpret the characters after the symbol “?”. Obviously, since this URL does not actually exist, they found nothing. Therefore, if your entire  website or most of the web pages on the website are dynamically  generated, in order to make SPIDER easy to read the content on your  website, you need to make certain modifications to the website. Some  search engines often refuse to search the URL of the static page (that  is, the dynamic page saved as a static page) URL under the cgi-bin  directory when searching for the page. </p>
+</blockquote>
+<p>Features: Display the content stored in the database to the customer  in a dynamic form, and store the customer’s data in the database for  later use. Therefore, the information stored in the database running in  the background of the website is updated faster. </p>
+<h2 id="2-2-Pseudo-static-webpage"><a href="#2-2-Pseudo-static-webpage" class="headerlink" title="2.2 Pseudo-static webpage"></a>2.2 Pseudo-static webpage</h2><p>Advantages: easy to include </p>
+<p>Disadvantages: take up more CPU </p>
+<p><strong>Features: The address of the static page is real, does it not contain it in the path? Variable symbols such as &amp;% are more  friendly to search engines and easier to be trusted. In order to pursue  the advantages of dynamic pages and static pages and avoid shortcomings, “pseudo-static” has been produced. On the basis of dynamic pages, url  rewriting is used The technology inserts the transfer parameters into  the URL address to confuse the spider.</strong> </p>
+<h2 id="2-3-Static-webpage"><a href="#2-3-Static-webpage" class="headerlink" title="2.3 Static webpage"></a>2.3 Static webpage</h2><p>Advantages: fast speed, cross-platform, cross-server, and can  separate the database and back-end system from the front desk, thereby  improving site security. </p>
+<p>Disadvantages: high resource consumption, poor interactivity, complicated content update and maintenance </p>
+<blockquote>
+<p>Since static pages are stored in the server, Chinese medicine  occupies space and memory. It is conceivable that if a forum has 100,000 posts and the size of each post is 100K, if all the static pages exist  in the server, they will occupy 10G, not including storage calculations. The space is wasted, so it consumes space resources. </p>
+</blockquote>
+<p>Features: Each page of a static webpage has a fixed URL, and the  webpage URL is suffixed with common forms such as .htm, .html, .shtml,  and does not contain “?”. </p>
+<h1 id="3-File-format"><a href="#3-File-format" class="headerlink" title="3. File format"></a>3. File format</h1><p>The format of the web page acquisition page: </p>
+<ul>
+<li>Static surface: htm, html, shtml, xml </li>
+<li>Dynamic pages: asp, jsp, php, perl, cgi, ASP.net, Perl, CGI </li>
+</ul>
+<h1 id="4-Working-principle"><a href="#4-Working-principle" class="headerlink" title="4. Working principle"></a>4. Working principle</h1><blockquote>
+<p>The workflow of a static web page can be divided into the following 4 steps:<br>① Write a static file and publish it on the web server;<br>② The user enters the URL of the static web page in the address bar of  the browser and presses the Enter key, the browser sends an access  request to a web server;<br>③ web server to find the location of this static files, and converts it to <strong>stream HTML</strong> spread to the user’s browser;<br>④ browser has received <strong>the HTML stream</strong> , the display content of this page. </p>
+</blockquote>
+<hr>
+<blockquote>
+<p>The workflow of dynamic web pages is divided into the following 4 steps:<br>① compile dynamic web files, including program codes, and publish them on the web server;<br>② the user enters the URL of the dynamic web page in the address bar of  the browser and presses enter , the browser sends an access request to a web server;<br>③ web server to find the location of this dynamic page, and wherein the program code <strong>dynamically creates HTML stream</strong> transmitted to the user’s browser;<br>④ the browser receives the <strong>HTML stream</strong> , the display of this page content. </p>
+</blockquote>
+<h1 id="5-Answers-to-related-questions"><a href="#5-Answers-to-related-questions" class="headerlink" title="5. Answers to related questions"></a>5. Answers to related questions</h1><h2 id="5-1-Why-don’t-search-engines-read-it-Content-after"><a href="#5-1-Why-don’t-search-engines-read-it-Content-after" class="headerlink" title="5.1 Why don’t search engines read it? Content after"></a>5.1 Why don’t search engines read it? Content after</h2><blockquote>
+<p>The SPIDER of the search engine is unwilling to read the web pages  placed in the cgi-bin directory, or the URL contains characters with the symbol “?”. The reason is that if an “infinite” number of URLs are  provided in the CGI, then SPIDER will often be trapped in an endless  loop because of the retrieval of these “infinite” web pages. These are  the so-called spidertraps. The database program may also create a  similar situation to SPIDER. Therefore, in order to avoid possible  pitfalls, Spider will not read the characters after the “?” in URLs with the symbol “?”. If the Spider is trapped by your server, it is not only bad for the Spider itself, but Spider’s repeated access requests to  your website pages will also cause your server system to completely  paralyze. </p>
+</blockquote>
+<h2 id="5-2-Why-are-pseudo-static-web-pages-easy-to-be-included"><a href="#5-2-Why-are-pseudo-static-web-pages-easy-to-be-included" class="headerlink" title="5.2 Why are pseudo-static web pages easy to be included"></a>5.2 Why are pseudo-static web pages easy to be included</h2><blockquote>
+<p>In the article list, convert the link of the article such as  /blog/articleInfo.do?userName=zy&amp;&amp;blogId=1&amp;&amp;articleId=1  into a URL like blog/a/0101002526B90C548A833416.html, so that the spider can crawl in and see the corresponding content, because Each article in the article list is a different static URL. </p>
+</blockquote>
+<h2 id="5-3-The-significance-of-mod-rewrite"><a href="#5-3-The-significance-of-mod-rewrite" class="headerlink" title="5.3 The significance of mod_rewrite"></a>5.3 The significance of mod_rewrite</h2><p>Crawlers don’t like to crawl dynamic webpages with question marks. No matter how the parameters are added, the returned content remains the  same. For example, <a href="http://alvincr.com/?2222222222222">http://alvincr.com/?2222222222222</a> will point to my  first page. So with mod_rewrite, it can remap addresses. The web server  receives the request for the address of the page and remaps it, and then executes the PHP program. (The above URLs are all hypothetical) In this way, the URL presented to the outside becomes the same as the URL of a  static webpage without a question mark without internal changes. </p>
+<h2 id="5-4-Why-crawlers-crawl-pseudo-dynamic-web-pages"><a href="#5-4-Why-crawlers-crawl-pseudo-dynamic-web-pages" class="headerlink" title="5.4 Why crawlers crawl pseudo-dynamic web pages"></a>5.4 Why crawlers crawl pseudo-dynamic web pages</h2><blockquote>
+<p>Search engines will not record URLs with question marks because  search engines are afraid of entering an endless loop due to question  marks (previously, there was a loophole in the moving web, and spiders  could not get in and out), so many times the address with question marks will not go in. , Pseudo-static is actually static for search engines,  because there is no question mark in the address. </p>
+<p>The address of the static page is real, is it not included in the  path? Variable symbols such as &amp;% are more friendly to search  engines and easier to be trusted. In order to pursue the advantages of  dynamic pages and static pages and avoid shortcomings, “pseudo-static”  has been produced. Based on dynamic pages, URL rewriting is used The  technology inserts the transfer parameters into the URL address to  confuse the spider. </p>
+</blockquote>
+<h1 id="6-Related-knowledge"><a href="#6-Related-knowledge" class="headerlink" title="6. Related knowledge"></a>6. Related knowledge</h1><h2 id="6-1-AJAX"><a href="#6-1-AJAX" class="headerlink" title="6.1  AJAX "></a>6.1  <a href="https://zh.wikipedia.org/wiki/AJAX">AJAX </a></h2><blockquote>
+<p><strong>AJAX</strong> “ <strong>Asynchronous JavaScript and XML</strong> “ (asynchronous <a href="https://zh.wikipedia.org/wiki/JavaScript">JavaScript </a>and <a href="https://zh.wikipedia.org/wiki/XML">XML </a>stands for technology), which refers to a set of that integrate multiple <a href="https://zh.wikipedia.org/wiki/%E7%80%8F%E8%A6%BD%E5%99%A8">browser- </a>side <a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E9%A0%81">web page </a>development technologies technologies. </p>
+<p>Reason: </p>
+<p>Traditional web applications allow the user to fill in a form and to the when the form is submitted <a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E9%A0%81%E4%BC%BA%E6%9C%8D%E5%99%A8">web server </a>send a request . The server receives and processes the incoming form, and  then sends it back to a new web page, but this approach wastes a lot of  bandwidth, because most of the in the two pages are <a href="https://zh.wikipedia.org/wiki/HTML">HTML </a>codes often the same. Since each application communication needs to send a  request to the server, the response time of the application depends on  the response time of the server. This causes the user interface to  respond much slower than native applications. </p>
+<p>Appearance: </p>
+<p>Unlike this, AJAX applications can only send and retrieve necessary  data to the server, and use JavaScript on the client to process the  response from the server. Because the data exchanged between the server  and the browser is greatly reduced, the server responds faster. At the  same time, a lot of processing work can be done on the making the  request <a href="https://zh.wikipedia.org/wiki/%E5%AE%A2%E6%88%B7%E7%AB%AF">client </a>machine , so the load on the Web server is also reduced. </p>
+<p>There are problems: </p>
+<p>The main criticism of the application of Ajax is that it may destroy the browser’s back and bookmark functions [<a href="https://zh.wikipedia.org/wiki/AJAX#cite_note-3">3] </a>. In the case of dynamically updating the page, the user cannot go back  to the previous page state, because the browser can only record the in  the history <a href="https://zh.wikipedia.org/w/index.php?title=%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2&action=edit&redlink=1">static page </a>. </p>
+</blockquote>
+<p>Summary: AJAX can achieve partial updates of web pages, and keep the  parts that do not need to be updated, so that the web application can  respond to user actions more quickly. </p>
+<p>reference: </p>
+<p>Wikipedia, Baidu Encyclopedia </p>
+<p>Static website-pseudo-static &amp; SEO </p>
+<p><a href="https://blog.csdn.net/sunxianghuang/article/details/85938464">https://blog.csdn.net/sunxianghuang/article/details/85938464</a> </p>
+<p>What is the difference between a static web page and a dynamic web page? </p>
+<p><a href="https://zhuanlan.zhihu.com/p/104151537">https://zhuanlan.zhihu.com/p/104151537</a> </p>
+<p>About the characteristics and advantages of pseudo-static </p>
+<p><a href="https://blog.csdn.net/phphot/article/details/2208534">https://blog.csdn.net/phphot/article/details/2208534</a> </p>
+]]></content>
+        
+        <categories>
+            
+            <category> web </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> wordpress </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+        <title><![CDATA[VM installation Android X86 problem collection (install x86, GRUB boot, skip the console interface)]]></title>
+        <url>http://example.com/2020/05/12/VM%2520installation%2520Android%2520X86/</url>
+        <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p>The latest full version: </p>
+<p><a href="http://alvincr.com/2020/05/vm%E5%AE%89%E8%A3%85%E5%AE%89%E5%8D%93x86/">http://alvincr.com/2020/05/vm%e5%ae%89%e8%a3%85%e5%ae%89%e5%8d%93x86/ </a></p>
+<h2 id="Create-a-virtual-machine"><a href="#Create-a-virtual-machine" class="headerlink" title="Create a virtual machine"></a>Create a virtual machine</h2><p>PDF version link: Link: <a href="https://pan.baidu.com/s/11jZEzvC3PjBRQJxj8P_mUg">https://pan.baidu.com/s/11jZEzvC3PjBRQJxj8P_mUg </a>Extraction code: ccrr<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135454474.png" alt="Insert picture description here "></p>
+<ol>
+<li>Use typical<br>explanations </li>
+</ol>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134917248.png" alt="Insert picture description here "></p>
+<ol>
+<li>Load the image file directly </li>
+</ol>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134921593.png" alt="Insert picture description here "></p>
+<ol>
+<li>The following all use the default operation to install. </li>
+<li>Show that you are ready to customize the hardware when creating a virtual  machine (you can also customize it in the virtual machine tab settings,  or you can customize it in the startup interface), and start the virtual machine after creation.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134928977.png" alt="Insert picture description here "></li>
+</ol>
+<h2 id="Install-IOS-image-file"><a href="#Install-IOS-image-file" class="headerlink" title="Install IOS image file"></a>Install IOS image file</h2><blockquote>
+<p>2.1 Wait for boot and choose to install to hard drive<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134933561.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.2 Create a new partition<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134938876.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.3 Do not use GPT to avoid BOOT failure.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134942370.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.4 Create a new partition (new option)<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134945703.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.5 Select the first partition<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134949358.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.6 Customize the partition size. In order to facilitate the  management, the SD card is not set, so use the default operation to  divide all into one disk.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135007604.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.7 Select Bootable, the word Boot will appear in Flags<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135026510.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.8 Select write for write operation, enter yes to confirm operation<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135040979.png" alt="Insert picture description here "></p>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135044628.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.9 Select Quit to exit. Since then, Android has created a new partition. Now let’s set up the boot </p>
+</blockquote>
+<blockquote>
+<p>The following interface appears after Quit exits, use the default operation<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135057291.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.10 Choose ext4 for sda1 format, other formats are prone to BUG<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135100409.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.11 At this time, the installer will ask: You have chosen to format the first partition of the first hard disk as ext4. All data will be  lost. Are you sure you want to format this hard disk? Select “Yes” and  press Enter.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135105167.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.12 Choose to use GRUB boot program, or directly enter the system if not<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135108188.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.13 Read and write installation system directory<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135111739.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.14 Do not perform any operation when this interface appears,  because if you choose to run, it will generally not run. If you choose  to restart, it will boot from the CD. Re-enter the installation, so you  need to eject the CD. </p>
+</blockquote>
+<blockquote>
+<p>Select the virtual machine tab, set the interface or use the  shortcut key ctrl+d, close the ISO image, cancel the connected and  connect at startup options.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135114502.png" alt="Insert picture description here "></p>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135117587.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.15 Confirm to disconnect<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135120395.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.16 Select restart<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135122705.png" alt="Insert picture description here "></p>
+</blockquote>
+<h2 id="Edit-guide"><a href="#Edit-guide" class="headerlink" title="Edit guide"></a>Edit guide</h2><p>3.1 Enter the startup interface, press e to edit in the first tab, if you accidentally enter and restart the virtual machine, you can<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135127653.png" alt="Insert picture description here "></p>
+<blockquote>
+<p>Enter the following interface, also press e to edit the first option<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135131197.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>3.2<br>You can see the following interface. The &lt;in ndroid-9.0  means that the display is not complete, so we need to move the cursor to the left and use the arrow on the left small keyboard to move it.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135138193.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>3.3 Find the quiet string, change it to nomodeset xforcevesa, and force it to start<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135143209.png" alt="Insert picture description here "></p>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135146858.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>3.4 Press Enter to confirm and edit, press b on this interface to  boot (ie boot), you can successfully enter the Android virtual machine<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135303441.png" alt="Insert picture description here "></p>
+</blockquote>
+<h2 id="Change-the-default-GRUB-boot"><a href="#Change-the-default-GRUB-boot" class="headerlink" title="Change the default GRUB boot"></a>Change the default GRUB boot</h2><blockquote>
+<p>After personal settings, you can successfully enter the system, but  when you restart and select the first normal startup, you will find that you still enter the console interface. This is because the edited  startup option does not save the record. It is only used during the  first boot. There are two options: one is to re-operate according to the above steps every time you start, and the other is to change the grub  boot as described below.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135311599.png" alt="Insert picture description here "></p>
+</blockquote>
+<h3 id="4-1-Use-a-terminal-emulator-to-make-changes-the-personal-test-was-not-successful-and-it-was-cumbersome-so-it-is-not-recommended"><a href="#4-1-Use-a-terminal-emulator-to-make-changes-the-personal-test-was-not-successful-and-it-was-cumbersome-so-it-is-not-recommended" class="headerlink" title="4.1 Use a  terminal emulator to make changes, the personal test was not successful, and it was cumbersome, so it is not recommended"></a>4.1 Use a  terminal emulator to make changes, the personal test was not successful, and it was cumbersome, so it is not recommended</h3><blockquote>
+<p>Link <em><a href="https://www.cmdschool.org/archives/4392">https://www.cmdschool.org/archives/4392</a></em> ) </p>
+</blockquote>
+<blockquote>
+<p>4.1.1 Use a terminal emulator in the operation interface<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135356511.png" alt="Insert picture description here "><br>[External link image transfer failed. The source site may have an anti-leech link mechanism. It is recommended to save the image and upload it directly  (img-Ai4jQTCi-1587275020721)(media/f8c4f06f5d83e815c5d9bc14aee69001.png)] </p>
+</blockquote>
+<blockquote>
+<p>切换到root模式</p>
+</blockquote>
+<blockquote>
+<p>his </p>
+</blockquote>
+<p>Confirm the format of the partition, you can see that the format of the partition sda1 is “ext4” </p>
+<blockquote>
+<p>mount | grep sda1<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135404639.png" alt="Insert picture description here "><br>[External link image transfer failed. The source site may have an anti-leech link mechanism. It is recommended to save the image and upload it directly  (img-CRk5EZ7R-1587275020723)(media/1c98a92fafc5df2ef94c97966f3ff84d.png)] </p>
+</blockquote>
+<p>Create mount folder </p>
+<blockquote>
+<p>mkdir /data/fs </p>
+</blockquote>
+<p>Mount folder </p>
+<blockquote>
+<p>mount -t ext4 /dev/block/sda1 /data/fs </p>
+</blockquote>
+<p>Edit grub </p>
+<blockquote>
+<p>vi /data/fs/grub/menu.list </p>
+</blockquote>
+<blockquote>
+<p>Modify the line as follows, </p>
+</blockquote>
+<p>title Android-x86 8.1-rc1 </p>
+<p>kernel /android-8.1-rc1/kernel root=/dev/ram0 androidboot.selinux=permissive<br> SRC=android-8.1-rc1 nomodeset xforcevesa </p>
+<blockquote>
+<p>Note: Add “nomodeset xforcevesa” at the end of the line, if there is “quiet” please delete </p>
+</blockquote>
+<blockquote>
+<p>Restart and test </p>
+</blockquote>
+<blockquote>
+<p>Reboot </p>
+</blockquote>
+<h3 id="4-2-Select-Debug-mode-on-the-startup-interface"><a href="#4-2-Select-Debug-mode-on-the-startup-interface" class="headerlink" title="4.2 Select Debug mode on the startup interface"></a>4.2 Select Debug mode on the startup interface</h3><p>Reference: <a href="https://blog.acesheep.com/index.php/archives/938/%EF%BC%88%E4%B8%BA%E8%87%AA%E5%B7%B1%E7%9A%84Android9.0">https://blog.acesheep.com/index.php/archives/938/ (take a of your own Android9.0 </a>screenshot , lower version is also feasible </p>
+<p>Press Enter to enter the debugging command and wait for the system operation to complete<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135411854.png" alt="Insert picture description here "></p>
+<p>Type mount -o remount,rw /mnt and press Enter ( rw<br>there is a space after , pay attention to the following picture, the description is correct, continue to the next command<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135421624.png" alt="Insert picture description here "></p>
+<p>Then enter vi<br>/mnt/grub/menu.lst and press Enter to appear below, and change the position marked in red, add nomodeset_ to the space  after quiet at the red line in the above figure. ()<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135424198.png" alt="Insert picture description here "></p>
+<p>Remarks: The operation is a Linux command. First press the i key to  start the editing operation before you can enter it. After changing,  press the Esc key to exit the editing command, and then press the key,  enter wq, and restart the virtual machine. </p>
+<p>Since the higher version of the Android virtual machine can  automatically adjust the resolution, the following settings can be  ignored. If you want to set the resolution,<br>add UVESA_MODE=1280x1024 at the end of the startup parameter. </p>
+<p>Finally: Install Vmtools on Android. I have not solved it after a long time. And Android mirror: Link:<br><a href="https://pan.baidu.com/s/11F5Bzsihrzf02QPQSawJYg">https://pan.baidu.com/s/11F5Bzsihrzf02QPQSawJYg </a>Extraction code: ccrr </p>
+<p>Transmission scheme: </p>
+<p>Link: <a href="https://answer-id.com/71010441">https://answer-id.com/71010441 </a></p>
+<p>Share files between the Windows host and the Android-x86 client. All  you need is a network sharing program that supports the Samba (SMB)  protocol. I use <em>AndSMB to</em> download from the Play Store for free and it is very good. You create a new connection with a hostname, you  can provide credentials or connect as a guest. To connect as a Guest,  you can check the anonymous box, but if this doesn’t work, I will give  the user pcname guest and a blank password, where pcname is the network  name of your computer. You can see all shared folders when you open the  connection. All you have to do is copy the files you want to a shared  folder that can be accessed from AndSMB! You can also browse all Android folders and upload required files to the shared folder, provided that  you have set read/write access permissions for all users (including  Guest accounts). </p>
+]]></content>
+        
+        <categories>
+            
+            <category> vmware android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> vmware </tag>
+            
+            <tag> android </tag>
+            
+            <tag> system </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+        <title><![CDATA[Website building operation-WordPress adds user registration and login functions (three methods)]]></title>
+        <url>http://example.com/2020/05/07/WordPress%2520adds%2520user%2520registration%2520/</url>
+        <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p>Failed to export some pictures </p>
+<p>For the complete article, please refer to my blog: <a href="https://alvincr.com/2020/05/wordpress-test/">https://alvincr.com/2020/05/wordpress-test/ </a></p>
+<p>This article only records the content with more operation steps. For other simpler content, see the plugin section</p>
+<h1 id="1-WordPress-adds-user-registration-and-login-functions"><a href="#1-WordPress-adds-user-registration-and-login-functions" class="headerlink" title="1. WordPress adds user registration and login functions"></a>1. WordPress adds user registration and login functions</h1><h2 id="Method-1-Use-User-Registration"><a href="#Method-1-Use-User-Registration" class="headerlink" title="Method 1: Use User Registration"></a>Method 1: Use User Registration</h2><p>Select appearance-install plugin to search</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-16-1024x184.png" alt="img"></p>
+<p>After the installation is complete, start, and select the user registration tab, and choose to install the user registration interface</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-20-1024x238.png" alt="img"></p>
+<p>After installation, you can see the options on the homepage</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-22-1024x101.png" alt="img"></p>
+<p>effect:</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-21-1024x244.png" alt="img"></p>
+<h2 id="Method-2-Use-Plug-in-Theme-My-Login-×"><a href="#Method-2-Use-Plug-in-Theme-My-Login-×" class="headerlink" title="Method 2: Use Plug-in Theme My Login (×)"></a>Method 2: Use Plug-in Theme My Login (×)</h2><p><strong>Invalid for personal use</strong></p>
+<p>Find Theme My Login in the plugin-install plugin search</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-14.png" alt="img"></p>
+<p>Let it automatically manage the registration interface, select Appearance-Gadget and add it to the right sidebar</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-19.png" alt="img"></p>
+<p>Effect picture:</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-17.png" alt="img"></p>
+<p>Open effect:</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-18-1024x181.png" alt="img"></p>
+<p>Reason: I didn’t find the reason online. I think Theme My Login does not match my WP version. My WP version should be the latest. This theme has not been updated for eight months. It is estimated that the new version is not supported</p>
+<h2 id="Method-3-Register-with-email"><a href="#Method-3-Register-with-email" class="headerlink" title="Method 3: Register with email"></a>Method 3: Register with email</h2><h2 id="1-Add-a-registration-page"><a href="#1-Add-a-registration-page" class="headerlink" title="1. Add a registration page"></a>1. Add a registration page</h2><p>1.1 Find the add user interface and copy the website address of the interface (<a href="http://alvincr.com/wp-admin/user-new.php">http://alvincr.com/wp-admin/user-new.php</a>)</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-5-1024x430.png" alt="img"></p>
+<p>1.2 Create a new page on the homepage to manage the registration window</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-6.png" alt="img"></p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-7-1024x259.png" alt="img"></p>
+<p>In this way, you can see the window where the user has been registered when you log in to the home page</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-8-1024x52.png" alt="img"></p>
+<p>1.3 Add a jump page, so that clicking the user registration will automatically jump to the registration interface</p>
+<p>Find the Appearance-Menu-Customize Menu, add the URL to the add user interface address you just saved (<a href="http://alvincr.com/wp-admin/user-new.php">http://alvincr.com/wp-admin/user-new.php</a>), and change the link text to the desired text ( I named it the registration test here),</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-10.png" alt="img"></p>
+<p>Then drag the registration test to the right to make it a subdirectory of user tests</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-9-1024x597.png" alt="img"></p>
+<p>In this way, you can see that a sub-link is generated under user registration, click to register. (The operation is not over, the 2.1 operation must be carried out)</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-11-1024x111.png" alt="img"></p>
+<p>Linux virtual machine test renderings:</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-12-1024x488.png" alt="img"></p>
+<h2 id="2-Configure-the-registration-page"><a href="#2-Configure-the-registration-page" class="headerlink" title="2. Configure the registration page"></a>2. Configure the registration page</h2><p>Through the above operations, you can successfully enter the registration page, but this page is not just an official WordPress page. It looks too crude. The most deadly thing is that you can’t use your email to register. The registration function is dead in name.</p>
+<p>Enable email function:</p>
+<p>Many hosts do not support the mail function, so the host itself cannot send mail, then we need to install a mail plug-in <strong>WP-Mail-SMTP which</strong> can send mail through your mailbox SMTP (qq mailbox, 163, gmail, etc.)</p>
+<p>First install the <strong>WP-Mail-SMTP</strong> plug-in, after successful installation, enable and set</p>
+<p><img src="https://alvincr.com/wp-content/uploads/2020/05/image-13-1024x131.png" alt="img"></p>
+<blockquote>
+<p>Note: SMTP is a protocol that provides reliable and effective email transmission. SMTP is a mail service based on the FTP file transfer service. It is mainly used to transfer mail information between systems and provide notifications about incoming letters. SMTP is independent of specific transmission subsystems and only requires reliable and orderly data flow channel support. One of the important features of SMTP is its ability to transmit mail across the network, that is, “SMTP mail relay.” Using SMTP, mail transmission between the same network processing process can be realized, and mail transmission between a certain processing process and other networks can also be realized through a relay or gateway. [1]</p>
+</blockquote>
+<p>Register SMTP (need to purchase), follow the process to complete the settings</p>
+]]></content>
+        
+        <categories>
+            
+            <category> wordpress building </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> wordpress </tag>
+            
+            <tag> login </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+        <title><![CDATA[Solve the integration of the self-use program in the advertising pop-up window in the lower right corner of Windows]]></title>
+        <url>http://example.com/2020/05/06/advertising%2520pop-up%2520window/</url>
+        <content type="html"><![CDATA[<h1 id="Solve-the-integration-of-the-self-use-program-in-the-advertising-pop-up-window-in-the-lower-right-corner-of-Windows-use-new-methods-to-update"><a href="#Solve-the-integration-of-the-self-use-program-in-the-advertising-pop-up-window-in-the-lower-right-corner-of-Windows-use-new-methods-to-update" class="headerlink" title="Solve the integration of the self-use program in the advertising pop-up window in the lower  right corner of Windows (use new methods to update)"></a>Solve the integration of the self-use program in the advertising pop-up window in the lower  right corner of Windows (use new methods to update)</h1><p>Here is an example of the pop-up window of Eye Protector (this pop-up window is a reminder that I asked to pop up, not an annoying pop-up  window) </p>
+<h1 id="1-Use-automatic-blocking-software"><a href="#1-Use-automatic-blocking-software" class="headerlink" title="1. Use automatic blocking software"></a>1. Use automatic blocking software</h1><h2 id="1-1-Use-tinder’s-pop-up-window-to-intercept"><a href="#1-1-Use-tinder’s-pop-up-window-to-intercept" class="headerlink" title="1.1 Use tinder’s pop-up window to intercept"></a>1.1 Use tinder’s pop-up window to intercept</h2><p>The current experience is very good. I think it’s not necessary to  introduce it. If you advertise to others, you can use it directly if you don’t have special needs. </p>
+<p>This tool can be found in Security Tools </p>
+<p><img src="/2020/05/06/advertising%20pop-up%20window/20200506173647570.png" alt="img"></p>
+<h2 id="1-2-Turn-on-Focus-Assistant"><a href="#1-2-Turn-on-Focus-Assistant" class="headerlink" title="1.2 Turn on Focus Assistant"></a>1.2 Turn on Focus Assistant</h2><p>The effect is relatively poor. Although it can intercept some  windows, it will not be closed directly, but hang in the background, but it is also a method, at least it can prevent accidental closing. </p>
+<p><img src="/2020/05/06/advertising%20pop-up%20window/20200506173937509.png" alt="img"></p>
+<h2 id><a href="#" class="headerlink" title></a></h2><h1 id="2-Manually-delete"><a href="#2-Manually-delete" class="headerlink" title="2. Manually delete"></a>2. Manually delete</h1><h2 id="2-1-Delete-the-pop-up-window-through-the-task-manager"><a href="#2-1-Delete-the-pop-up-window-through-the-task-manager" class="headerlink" title="2.1 Delete the pop-up window through the task manager"></a>2.1 Delete the pop-up window through the task manager</h2><h3 id="2-1-1-Through-the-process"><a href="#2-1-1-Through-the-process" class="headerlink" title="2.1.1 Through the process"></a>2.1.1 Through the process</h3><p>According to the name of the pop-up window, directly close it through the task manager (only used for pop-up windows with easy-to-find names, and it is still very troublesome for me to find too many applications  like me) </p>
+<p>Then right click to find </p>
+<p><img src="/2020/05/06/advertising%20pop-up%20window/20200506174306390.png" alt="img"></p>
+<p>Right-click to select the location of the punch-in file, and then delete the advertisement file </p>
+<p><img src="/2020/05/06/advertising%20pop-up%20window/20200506175339819.png" alt="img"></p>
+<h3 id="2-1-2-Through-user-management"><a href="#2-1-2-Through-user-management" class="headerlink" title="2.1.2 Through user management"></a>2.1.2 Through user management</h3><p>It is similar to using process management, but it is more convenient  to look at the file name. Similarly, find the window name, right-click  and select the location of the punch-in file, and then delete the  advertisement file. </p>
+<p><img src="/2020/05/06/advertising%20pop-up%20window/20200506175451325.png" alt="img"></p>
+<h2 id="2-2-Close-the-pop-up-window-to-start-automatically"><a href="#2-2-Close-the-pop-up-window-to-start-automatically" class="headerlink" title="2.2 Close the pop-up window to start automatically"></a>2.2 Close the pop-up window to start automatically</h2><p>Find the Startup tab in Task Manager </p>
+<p>Or press ctrl+r and enter cmd command and enter msconfig to find the service tab </p>
+<p><img src="/2020/05/06/advertising%20pop-up%20window/20200506174516923.png" alt="img"></p>
+<p><img src="/2020/05/06/advertising%20pop-up%20window/20200506174559399.png" alt="img"></p>
+<h2 id="2-3-Use-third-party-tools-to-delete"><a href="#2-3-Use-third-party-tools-to-delete" class="headerlink" title="2.3 Use third-party tools to delete"></a>2.3 Use third-party tools to delete</h2><h3 id="2-3-1-ViewWizard-handle-wizard"><a href="#2-3-1-ViewWizard-handle-wizard" class="headerlink" title="2.3.1 ViewWizard handle wizard"></a>2.3.1 ViewWizard handle wizard</h3><p>ViewWizard View the source of the pop-up window, just follow the above operations </p>
+<p>In ViewWizard3.0, select the red button in the lower left corner,  drag it to the window you want to close, and then delete the  advertisement file through the corresponding path </p>
+<p><img src="/2020/05/06/advertising%20pop-up%20window/20200506175857246-1610771630710.png" alt="img"></p>
+]]></content>
+        
+        <categories>
+            
+            <category> win clean </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> clean </tag>
+            
+            <tag> solution </tag>
+            
+            <tag> win </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+        <title><![CDATA[Pagoda can not parse the website containing www after creating a new website]]></title>
+        <url>http://example.com/2020/05/04/pagoda%2520parse%2520error/</url>
+        <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title></a></h1><p>This is caused by a problem with the site  configuration. It is only necessary to resolve both alvincr.com and  <a href="http://www.alvincr.com/">www.alvincr.com</a> to the same server location at the same time. (For  detailed site building steps and problems, please refer to my blog  alvincr.com) </p>
+<p>Here you can see that I added <a href="http://www.alvincr.com/">www.alvincr.com</a> and alvincr.com to the  DNS resolution, but I can crawl to alvincr.com when I crawl, but I can’t crawl to <a href="http://www.alvincr.com/">www.alvincr.com</a> </p>
+<p><img src="/2020/05/04/pagoda%20parse%20error/20200504095935689.png" alt="img"></p>
+<p>The following text appears: </p>
+<blockquote>
+<p>No site found<br>Your request did not find the corresponding site in the Web server! </p>
+<p>Possible reasons:<br>\1. You did not bind this domain name or IP to the corresponding site!<br>\2. The configuration file does not take effect! </p>
+<p>How to solve:<br>\1. Check if it has been bound to the corresponding site, if it is bound, please try to reload the web service;<br>\2. Check if the port is correct;<br>\3. If you are using a CDN product, please try to clear the CDN cache;<br>4 . For ordinary website visitors, please contact the website administrator; </p>
+</blockquote>
+<p>Solution: Configure the domain name of the site </p>
+<p>Select the website, find the domain name and set it up, so you can log in with <a href="http://www.alvincr.com/">www.alvincr.com</a> </p>
+<p><img src="/2020/05/04/pagoda%20parse%20error/20200504100623113.png" alt="img"></p>
+<p><img src="/2020/05/04/pagoda%20parse%20error/20200504100852647.png" alt="img"></p>
+<p>Note: If you directly click to add a site, the login site will be  displayed. If you want to make the two pages display differently, or  create a new secondary domain name, you can use this method. </p>
+<p><img src="/2020/05/04/pagoda%20parse%20error/20200504100650598.png" alt="img"></p>
+]]></content>
+        
+        <categories>
+            
+            <category> web building </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> web </tag>
+            
+            <tag> php </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+        <title><![CDATA[C Disk Cleanup--Solution to the problem that the emulator (Yeshen as an example) takes up more and more space]]></title>
+        <url>http://example.com/2020/04/30/C%2520Disk%2520Cleanup/</url>
+        <content type="html"><![CDATA[<p>#C Disk Cleanup–Solution to the problem that the emulator (Yeshen as an example) takes up more and more space (this method is suitable for the situation where multiple APKs have been installed, although they are uninstalled, they are still occupied)</p>
+<p>This method is suitable for the situation where multiple APKs have been installed, although they are uninstalled but the occupation is still serious</p>
+<p>Happening:</p>
+<p>At the beginning, I had 15G left on the C drive. After installing the APK, I reduced it to 5G. In order to make room for the PS, I uninstalled almost all the applications in the virtual machine. However, I found that the C drive did not become larger and the occupation was still serious. Find the location of the night god simulator and check that it takes up 20G of memory, plus other learning software forcibly occupied my 200G C drive.</p>
+<p>Using the cleanup program that comes with the Night God Simulator is invalid.</p>
+<p><img src="/2020/04/30/C%20Disk%20Cleanup/20200430161221300.png" alt="img"></p>
+<p>idea:</p>
+<p>I guess that the simulation method used by the Night God Simulator is similar to the Vm virtual machine. Find the corresponding folder, and you can see that the generated vmdk file is the same as the Vm virtual machine. It should be that the Night God Simulator is not perfect enough. The uninstall file on the interface is just not displayed on the interface, and the file is not actually deleted, and the Vm virtual machine does not have this problem.</p>
+<p><img src="/2020/04/30/C%20Disk%20Cleanup/20200430155612521.png" alt="img"></p>
+<p>Solution:</p>
+<p>\1. First export the useful applications, press and hold the application to select export, after the export is completed, it will jump directly, or you can find the exported file in C:\Users\Administrator\Nox_share\ImageShare.</p>
+<blockquote>
+<p><img src="/2020/04/30/C%20Disk%20Cleanup/20200430160044870.png" alt="img"></p>
+</blockquote>
+<p>\2. Find the directory C:\Software\Applications\Emulator Night God\Nox\bin\BignoxVMS\nox</p>
+<p>Delete the nox-disk2.vmdk file, if it shows occupied, close the Night God simulator and try again, or use the unoccupied tool, if it does not restart the computer.</p>
+<p>\3. Reopen the virtual machine and reinstall the backed up files. You can see that the junk files are successfully removed.</p>
+<p><img src="/2020/04/30/C%20Disk%20Cleanup/20200430160358211.png" alt="img"></p>
+]]></content>
+        
+        <categories>
+            
+            <category> solution clean </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> clean </tag>
+            
+            <tag> space </tag>
+            
+            <tag> solution </tag>
             
         </tags>
         

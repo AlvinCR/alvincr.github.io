@@ -1,0 +1,511 @@
+<!doctype html>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    
+    
+    <!--Simple SEO-->
+
+<meta name="description" content=There are only some articles here and will not be updated If you want to see more articles and updated content, please visit alvincr.com/>
+
+
+<meta name="robots" content=all />
+<meta name="google" content=all />
+<meta name="googlebot" content=all />
+<meta name="verify" content=all />
+    <!--Title-->
+
+<title>VM installation Android X86 problem collection (install x86, GRUB boot, skip the console interface) | Alvin Casper Personal Blog</title>
+
+<link rel="alternate" href="/atom.xml" title="Alvin Casper Personal Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/pages/post.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
+<link rel="stylesheet" href="/.css">
+
+
+    <!--script-->
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body id="normal">
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<style>
+    header{ top: 71px; position: absolute!important;}
+    #container{padding-top: 151px!important;}
+</style>
+<div style="position:fixed;z-index:9999;left:0;top:0;width:100%;height:70px;background-color:#e0e0e0;color:#396CA5;border-bottom:1px solid #cecece;text-align:center;line-height:70px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">The browser version you are using is too low. For your better reading experience, please update the browser version or use other modern browsers, such as Chrome, Firefox, Safari, etc.</div>
+<![endif]-->
+
+<div id="wrap">
+    <header  style="position: absolute;" >
+    <div id="site-meta">
+        <a href="/" id="logo">
+            <h1 class="title">Alvin Casper Personal Blog</h1>
+        </a>
+        
+        <h2 class="subtitle">This is the copy of alvincr.com</h2>
+        
+    </div>
+    <ul id="nav">
+        
+            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+        
+            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS</a></li>
+        
+        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>Search</a></li>
+    </ul>
+</header>
+
+    <div id="container">
+        
+<ul id="sidebar">
+    
+    
+<li class="widget notification">
+    <i class="fa fa-bell-o"></i>
+    <div>
+        
+<p><a href="https://alvincr.com/"
+title="alvincr.com" target="_blank">Visit My Blog</a></p>
+    </div>
+</li>
+
+    
+    
+<li class="widget widget-normal category">
+    <h3 class="fa fa-th widget-title">Categories</h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/Web-building/"><i class="fa" aria-hidden="true">Web building</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/solution-clean/"><i class="fa" aria-hidden="true">solution clean</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vmware-android/"><i class="fa" aria-hidden="true">vmware android</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/"><i class="fa" aria-hidden="true">web</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-building/"><i class="fa" aria-hidden="true">web building</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/win-clean/"><i class="fa" aria-hidden="true">win clean</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress-building/"><i class="fa" aria-hidden="true">wordpress building</i></a><span class="category-list-count">1</span></li></ul>
+</li>
+
+
+    
+    
+<li class="widget widget-normal archive">
+  <h3 class="fa fa-archive widget-title">Archives</h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/"><i class="fa" aria-hidden="true">January 2021</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/"><i class="fa" aria-hidden="true">June 2020</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/"><i class="fa" aria-hidden="true">May 2020</i></a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><i class="fa" aria-hidden="true">April 2020</i></a><span class="archive-list-count">1</span></li></ul>
+</li>
+
+
+    
+    
+<li class="widget widget-normal popular-posts" id="popular-posts">
+    <h3 class="fa fa-thermometer-3 widget-title">Popular Posts</h3>
+    <ul id="popular-content">
+        <li class="load-first"><i class="fa fa-spinner fa-pulse"></i></li>
+    </ul>
+</li>
+
+    
+    
+<li class="widget widget-normal tags">
+  <h3 class="fa fa-tags widget-title">Tag Cloud</h3>
+  <div class="tagcloud-content">
+    
+      <a href="/tags/clean/" style="font-size: 0.2rem; color: #0a407c">clean</a> <a href="/tags/space/" style="font-size: 0.14rem; color: #69c">space</a> <a href="/tags/solution/" style="font-size: 0.2rem; color: #0a407c">solution</a> <a href="/tags/linux/" style="font-size: 0.2rem; color: #0a407c">linux</a> <a href="/tags/delete/" style="font-size: 0.14rem; color: #69c">delete</a> <a href="/tags/Github/" style="font-size: 0.14rem; color: #69c">Github</a> <a href="/tags/register/" style="font-size: 0.14rem; color: #69c">register</a> <a href="/tags/Pages/" style="font-size: 0.14rem; color: #69c">Pages</a> <a href="/tags/vmware/" style="font-size: 0.14rem; color: #69c">vmware</a> <a href="/tags/android/" style="font-size: 0.14rem; color: #69c">android</a> <a href="/tags/system/" style="font-size: 0.14rem; color: #69c">system</a> <a href="/tags/wordpress/" style="font-size: 0.2rem; color: #0a407c">wordpress</a> <a href="/tags/login/" style="font-size: 0.14rem; color: #69c">login</a> <a href="/tags/win/" style="font-size: 0.14rem; color: #69c">win</a> <a href="/tags/web/" style="font-size: 0.2rem; color: #0a407c">web</a> <a href="/tags/php/" style="font-size: 0.14rem; color: #69c">php</a>
+  </div>
+</li>
+
+
+    
+    
+<li class="widget widget-normal friends-link">
+    <h3 class="fa fa-globe widget-title">Friends</h3><br/>
+
+    
+        <a href="https://alvincr.com/friends-chain/" class="fa" target="_blank">Add friends&#39; links</a>
+
+    
+
+</li>
+
+    
+</ul>
+
+
+        <div id="main">
+    <article id="post">
+        <div id="post-header">
+
+            <h1 id="VM installation Android X86 problem collection (install x86, GRUB boot, skip the console interface)">
+                
+                VM installation Android X86 problem collection (install x86, GRUB boot, skip the console interface)
+                
+            </h1>
+            <div class="article-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+        <span>vmware android</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+         <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            vmware
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta ">2020/05/12</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+            <i class="fa fa-thermometer-three-quarters"></i>
+        <span class="hits hits-meta " data-leadcloud-title="VM installation Android X86 problem collection (install x86, GRUB boot, skip the console interface)"
+              data-leadcloud-url="/2020/05/12/VM%20installation%20Android%20X86/"><i class="fa fa-spinner fa-spin"></i></span>
+    </span>
+    
+    
+</div>
+
+            
+            
+        </div>
+        
+        <div id="post-body">
+            <h1 id><a href="#" class="headerlink" title></a></h1><p>The latest full version: </p>
+<p><a target="_blank" rel="noopener" href="http://alvincr.com/2020/05/vm%E5%AE%89%E8%A3%85%E5%AE%89%E5%8D%93x86/">http://alvincr.com/2020/05/vm%e5%ae%89%e8%a3%85%e5%ae%89%e5%8d%93x86/ </a></p>
+<h2 id="Create-a-virtual-machine"><a href="#Create-a-virtual-machine" class="headerlink" title="Create a virtual machine"></a>Create a virtual machine</h2><p>PDF version link: Link: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/11jZEzvC3PjBRQJxj8P_mUg">https://pan.baidu.com/s/11jZEzvC3PjBRQJxj8P_mUg </a>Extraction code: ccrr<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135454474.png" alt="Insert picture description here "></p>
+<ol>
+<li>Use typical<br>explanations </li>
+</ol>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134917248.png" alt="Insert picture description here "></p>
+<ol>
+<li>Load the image file directly </li>
+</ol>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134921593.png" alt="Insert picture description here "></p>
+<ol>
+<li>The following all use the default operation to install. </li>
+<li>Show that you are ready to customize the hardware when creating a virtual  machine (you can also customize it in the virtual machine tab settings,  or you can customize it in the startup interface), and start the virtual machine after creation.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134928977.png" alt="Insert picture description here "></li>
+</ol>
+<h2 id="Install-IOS-image-file"><a href="#Install-IOS-image-file" class="headerlink" title="Install IOS image file"></a>Install IOS image file</h2><blockquote>
+<p>2.1 Wait for boot and choose to install to hard drive<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134933561.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.2 Create a new partition<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134938876.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.3 Do not use GPT to avoid BOOT failure.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134942370.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.4 Create a new partition (new option)<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134945703.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.5 Select the first partition<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419134949358.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.6 Customize the partition size. In order to facilitate the  management, the SD card is not set, so use the default operation to  divide all into one disk.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135007604.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.7 Select Bootable, the word Boot will appear in Flags<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135026510.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.8 Select write for write operation, enter yes to confirm operation<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135040979.png" alt="Insert picture description here "></p>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135044628.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.9 Select Quit to exit. Since then, Android has created a new partition. Now let’s set up the boot </p>
+</blockquote>
+<blockquote>
+<p>The following interface appears after Quit exits, use the default operation<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135057291.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.10 Choose ext4 for sda1 format, other formats are prone to BUG<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135100409.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.11 At this time, the installer will ask: You have chosen to format the first partition of the first hard disk as ext4. All data will be  lost. Are you sure you want to format this hard disk? Select “Yes” and  press Enter.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135105167.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.12 Choose to use GRUB boot program, or directly enter the system if not<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135108188.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.13 Read and write installation system directory<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135111739.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.14 Do not perform any operation when this interface appears,  because if you choose to run, it will generally not run. If you choose  to restart, it will boot from the CD. Re-enter the installation, so you  need to eject the CD. </p>
+</blockquote>
+<blockquote>
+<p>Select the virtual machine tab, set the interface or use the  shortcut key ctrl+d, close the ISO image, cancel the connected and  connect at startup options.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135114502.png" alt="Insert picture description here "></p>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135117587.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.15 Confirm to disconnect<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135120395.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>2.16 Select restart<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135122705.png" alt="Insert picture description here "></p>
+</blockquote>
+<h2 id="Edit-guide"><a href="#Edit-guide" class="headerlink" title="Edit guide"></a>Edit guide</h2><p>3.1 Enter the startup interface, press e to edit in the first tab, if you accidentally enter and restart the virtual machine, you can<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135127653.png" alt="Insert picture description here "></p>
+<blockquote>
+<p>Enter the following interface, also press e to edit the first option<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135131197.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>3.2<br>You can see the following interface. The &lt;in ndroid-9.0  means that the display is not complete, so we need to move the cursor to the left and use the arrow on the left small keyboard to move it.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135138193.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>3.3 Find the quiet string, change it to nomodeset xforcevesa, and force it to start<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135143209.png" alt="Insert picture description here "></p>
+<p><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135146858.png" alt="Insert picture description here "></p>
+</blockquote>
+<blockquote>
+<p>3.4 Press Enter to confirm and edit, press b on this interface to  boot (ie boot), you can successfully enter the Android virtual machine<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135303441.png" alt="Insert picture description here "></p>
+</blockquote>
+<h2 id="Change-the-default-GRUB-boot"><a href="#Change-the-default-GRUB-boot" class="headerlink" title="Change the default GRUB boot"></a>Change the default GRUB boot</h2><blockquote>
+<p>After personal settings, you can successfully enter the system, but  when you restart and select the first normal startup, you will find that you still enter the console interface. This is because the edited  startup option does not save the record. It is only used during the  first boot. There are two options: one is to re-operate according to the above steps every time you start, and the other is to change the grub  boot as described below.<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135311599.png" alt="Insert picture description here "></p>
+</blockquote>
+<h3 id="4-1-Use-a-terminal-emulator-to-make-changes-the-personal-test-was-not-successful-and-it-was-cumbersome-so-it-is-not-recommended"><a href="#4-1-Use-a-terminal-emulator-to-make-changes-the-personal-test-was-not-successful-and-it-was-cumbersome-so-it-is-not-recommended" class="headerlink" title="4.1 Use a  terminal emulator to make changes, the personal test was not successful, and it was cumbersome, so it is not recommended"></a>4.1 Use a  terminal emulator to make changes, the personal test was not successful, and it was cumbersome, so it is not recommended</h3><blockquote>
+<p>Link <em><a target="_blank" rel="noopener" href="https://www.cmdschool.org/archives/4392">https://www.cmdschool.org/archives/4392</a></em> ) </p>
+</blockquote>
+<blockquote>
+<p>4.1.1 Use a terminal emulator in the operation interface<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135356511.png" alt="Insert picture description here "><br>[External link image transfer failed. The source site may have an anti-leech link mechanism. It is recommended to save the image and upload it directly  (img-Ai4jQTCi-1587275020721)(media/f8c4f06f5d83e815c5d9bc14aee69001.png)] </p>
+</blockquote>
+<blockquote>
+<p>切换到root模式</p>
+</blockquote>
+<blockquote>
+<p>his </p>
+</blockquote>
+<p>Confirm the format of the partition, you can see that the format of the partition sda1 is “ext4” </p>
+<blockquote>
+<p>mount | grep sda1<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135404639.png" alt="Insert picture description here "><br>[External link image transfer failed. The source site may have an anti-leech link mechanism. It is recommended to save the image and upload it directly  (img-CRk5EZ7R-1587275020723)(media/1c98a92fafc5df2ef94c97966f3ff84d.png)] </p>
+</blockquote>
+<p>Create mount folder </p>
+<blockquote>
+<p>mkdir /data/fs </p>
+</blockquote>
+<p>Mount folder </p>
+<blockquote>
+<p>mount -t ext4 /dev/block/sda1 /data/fs </p>
+</blockquote>
+<p>Edit grub </p>
+<blockquote>
+<p>vi /data/fs/grub/menu.list </p>
+</blockquote>
+<blockquote>
+<p>Modify the line as follows, </p>
+</blockquote>
+<p>title Android-x86 8.1-rc1 </p>
+<p>kernel /android-8.1-rc1/kernel root=/dev/ram0 androidboot.selinux=permissive<br> SRC=android-8.1-rc1 nomodeset xforcevesa </p>
+<blockquote>
+<p>Note: Add “nomodeset xforcevesa” at the end of the line, if there is “quiet” please delete </p>
+</blockquote>
+<blockquote>
+<p>Restart and test </p>
+</blockquote>
+<blockquote>
+<p>Reboot </p>
+</blockquote>
+<h3 id="4-2-Select-Debug-mode-on-the-startup-interface"><a href="#4-2-Select-Debug-mode-on-the-startup-interface" class="headerlink" title="4.2 Select Debug mode on the startup interface"></a>4.2 Select Debug mode on the startup interface</h3><p>Reference: <a target="_blank" rel="noopener" href="https://blog.acesheep.com/index.php/archives/938/%EF%BC%88%E4%B8%BA%E8%87%AA%E5%B7%B1%E7%9A%84Android9.0">https://blog.acesheep.com/index.php/archives/938/ (take a of your own Android9.0 </a>screenshot , lower version is also feasible </p>
+<p>Press Enter to enter the debugging command and wait for the system operation to complete<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135411854.png" alt="Insert picture description here "></p>
+<p>Type mount -o remount,rw /mnt and press Enter ( rw<br>there is a space after , pay attention to the following picture, the description is correct, continue to the next command<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135421624.png" alt="Insert picture description here "></p>
+<p>Then enter vi<br>/mnt/grub/menu.lst and press Enter to appear below, and change the position marked in red, add nomodeset_ to the space  after quiet at the red line in the above figure. ()<br><img src="/2020/05/12/VM%20installation%20Android%20X86/20200419135424198.png" alt="Insert picture description here "></p>
+<p>Remarks: The operation is a Linux command. First press the i key to  start the editing operation before you can enter it. After changing,  press the Esc key to exit the editing command, and then press the key,  enter wq, and restart the virtual machine. </p>
+<p>Since the higher version of the Android virtual machine can  automatically adjust the resolution, the following settings can be  ignored. If you want to set the resolution,<br>add UVESA_MODE=1280x1024 at the end of the startup parameter. </p>
+<p>Finally: Install Vmtools on Android. I have not solved it after a long time. And Android mirror: Link:<br><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/11F5Bzsihrzf02QPQSawJYg">https://pan.baidu.com/s/11F5Bzsihrzf02QPQSawJYg </a>Extraction code: ccrr </p>
+<p>Transmission scheme: </p>
+<p>Link: <a target="_blank" rel="noopener" href="https://answer-id.com/71010441">https://answer-id.com/71010441 </a></p>
+<p>Share files between the Windows host and the Android-x86 client. All  you need is a network sharing program that supports the Samba (SMB)  protocol. I use <em>AndSMB to</em> download from the Play Store for free and it is very good. You create a new connection with a hostname, you  can provide credentials or connect as a guest. To connect as a Guest,  you can check the anonymous box, but if this doesn’t work, I will give  the user pcname guest and a blank password, where pcname is the network  name of your computer. You can see all shared folders when you open the  connection. All you have to do is copy the files you want to a shared  folder that can be accessed from AndSMB! You can also browse all Android folders and upload required files to the shared folder, provided that  you have set read/write access permissions for all users (including  Guest accounts). </p>
+
+        </div>
+        <div id="post-footer">
+            <div class="avatar" >
+                <img src="https://s3.ax1x.com/2021/01/16/sBTbz4.jpg" alt="avatar"/>
+                
+                
+                <a href="javascript:void(0)" class="donate fa">click here <br> Offer me coffee &#128536;</a>
+                
+            </div>
+            <ul class="author-profile-section">
+                <li>
+                  
+                  Author:
+                  
+                    
+                    <a href="/about.html">AlvinCR</a>
+                </li>
+                
+                <li>Published Date: <span>2020-05-12  20:40:37</span></li>
+                
+                <li>Updated Date: <span>2021-01-16  12:39:03</span></li>
+                
+                <li class="post-category">
+                    Categories:
+                    
+                    <a href="/categories/vmware-android/">vmware android</a>
+                    
+                </li>
+                <li class="post-tags">
+                    Tags:
+                    
+                    <a href="/tags/vmware/">vmware</a>
+                    
+                    <a href="/tags/android/">android</a>
+                    
+                    <a href="/tags/system/">system</a>
+                    
+                </li>
+                
+                <li> License: <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">
+CC BY-NC-ND 3.0
+</a></li>
+                
+            </ul>
+            <div id="donate-wrap">
+                
+                
+                
+                <img src="https://s3.ax1x.com/2021/01/16/sBTDdP.png" alt="Alipay" class="donate-img">
+                
+                <img src="https://s3.ax1x.com/2021/01/16/sBvpxf.png" alt="paypal.me/alvincr27" class="donate-img">
+                
+                
+            </div>
+        </div>
+    </article>
+    <div class="article-nav">
+        
+        <a href="/2020/05/24/dynamic%20webpages,%20pseudo-static%20and%20static%20/" class="pre-post fa fa-caret-left">Differences between dynamic webpages, pseudo-static and static webpages and related knowledge</a>
+        
+        
+        <a href="/2020/05/07/WordPress%20adds%20user%20registration%20/" class="next-post fa">Website building operation-WordPress adds user registration and login functions (three methods)</a>
+        
+    </div>
+    
+    <div id="comments">
+        
+
+<script>
+  gitalk.render("comments");
+</script>
+
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+    <footer id="footer">
+    
+    <div class="social">
+        
+        <a href="https://www.example1.com" class="fa fa-free-code-camp" target="_blank" title="freecodecamp"></a>
+        
+        <a href="https://www.example2.com" class="fa fa-github" target="_blank" title="Follow me~"></a>
+        
+    </div>
+    
+    <div>
+        
+        <a href="/" class="copyright-links">AlvinCR</a>&copy;2015 - 2021.All Rights
+        Reserved.
+    </div>
+    <p>Powered by <a href="https://hexo.io" class="copyright-links" target="_blank">Hexo</a> | Theme by <a
+                href="https://github.com/GeekaholicLin" class="copyright-links" target="_blank">GeekaholicLin</a>
+    </p>
+    
+    
+    <p>
+        <span id="busuanzi_container_site_uv" class="fa fa-bar-chart">
+        Welcome to the <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> friend~
+        </span>
+    </p>
+    
+</footer>
+
+</div>
+    <ul id="tools">
+    <li class="totop-btn fa fa-angle-up"></li>
+    <li class="exchange-btn fa fa-exchange"></li>
+  
+    <li class="toc-btn fa fa-list-ul"></li>
+    
+    
+
+    
+</ul>
+<p id="process"></p>
+<div id="search-overlay">
+    <div class="search-area-wrap">
+        <div id="search-area">
+            <div class="input-wrap focus">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input id="search-input" autofocus autocomplete="off" type="text"
+                       placeholder="search this website..."/>
+            </div>
+            <ul id="search-result">
+                <li class="load-first"><i class="fa fa-spinner fa-pulse"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-a-virtual-machine"><span class="toc-number">1.1.</span> <span class="toc-text">Create a virtual machine</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-IOS-image-file"><span class="toc-number">1.2.</span> <span class="toc-text">Install IOS image file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Edit-guide"><span class="toc-number">1.3.</span> <span class="toc-text">Edit guide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Change-the-default-GRUB-boot"><span class="toc-number">1.4.</span> <span class="toc-text">Change the default GRUB boot</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Use-a-terminal-emulator-to-make-changes-the-personal-test-was-not-successful-and-it-was-cumbersome-so-it-is-not-recommended"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 Use a  terminal emulator to make changes, the personal test was not successful, and it was cumbersome, so it is not recommended</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Select-Debug-mode-on-the-startup-interface"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 Select Debug mode on the startup interface</span></a></li></ol></li></ol></li></ol>
+
+
+
+
+
+<script src="/js/search.js"></script>
+
+<script type="text/javascript">
+    //theme config datas
+    var copyrightObj = {};
+    copyrightObj.enable = 'true';
+    copyrightObj.triggerCopyLength = '200';
+    copyrightObj.appendText = ' For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source © alvincr.com';
+    var leancloudObj = {};
+    leancloudObj.enable = 'true';
+    leancloudObj.className = 'BlogCounter';
+    leancloudObj.limits = '10';
+</script>
+<script type="text/javascript">
+    var search = {};
+    var search_path = "search.xml";
+    if (!search_path) {
+        search_path = "search.xml";
+    }
+    search.path = "/" + search_path;
+    search.func =  _ajax.init();
+</script>
+
+<script src="/js/app.js"></script>
+
+
+
+</body>
+</html>

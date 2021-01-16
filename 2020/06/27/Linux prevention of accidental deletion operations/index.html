@@ -1,0 +1,458 @@
+<!doctype html>
+<html>
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable"  content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    
+    
+    <!--Simple SEO-->
+
+<meta name="description" content=There are only some articles here and will not be updated If you want to see more articles and updated content, please visit alvincr.com/>
+
+
+<meta name="robots" content=all />
+<meta name="google" content=all />
+<meta name="googlebot" content=all />
+<meta name="verify" content=all />
+    <!--Title-->
+
+<title>Linux prevention of accidental deletion operations (use safe-rm; use mv command to delete files, accidental deletion recovery method) | Alvin Casper Personal Blog</title>
+
+<link rel="alternate" href="/atom.xml" title="Alvin Casper Personal Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/pages/post.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/thirdParty/highlight/github.css">
+<link rel="stylesheet" href="/.css">
+
+
+    <!--script-->
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body id="normal">
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<style>
+    header{ top: 71px; position: absolute!important;}
+    #container{padding-top: 151px!important;}
+</style>
+<div style="position:fixed;z-index:9999;left:0;top:0;width:100%;height:70px;background-color:#e0e0e0;color:#396CA5;border-bottom:1px solid #cecece;text-align:center;line-height:70px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">The browser version you are using is too low. For your better reading experience, please update the browser version or use other modern browsers, such as Chrome, Firefox, Safari, etc.</div>
+<![endif]-->
+
+<div id="wrap">
+    <header  style="position: absolute;" >
+    <div id="site-meta">
+        <a href="/" id="logo">
+            <h1 class="title">Alvin Casper Personal Blog</h1>
+        </a>
+        
+        <h2 class="subtitle">This is the copy of alvincr.com</h2>
+        
+    </div>
+    <ul id="nav">
+        
+            <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+        
+            <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS</a></li>
+        
+        <li id="search"><a href="javascript:void(0)"><i class="fa fa-search"></i>Search</a></li>
+    </ul>
+</header>
+
+    <div id="container">
+        
+<ul id="sidebar">
+    
+    
+<li class="widget notification">
+    <i class="fa fa-bell-o"></i>
+    <div>
+        
+<p><a href="https://alvincr.com/"
+title="alvincr.com" target="_blank">Visit My Blog</a></p>
+    </div>
+</li>
+
+    
+    
+<li class="widget widget-normal category">
+    <h3 class="fa fa-th widget-title">Categories</h3>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/Web-building/"><i class="fa" aria-hidden="true">Web building</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/"><i class="fa" aria-hidden="true">linux</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/solution-clean/"><i class="fa" aria-hidden="true">solution clean</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vmware-android/"><i class="fa" aria-hidden="true">vmware android</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/"><i class="fa" aria-hidden="true">web</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-building/"><i class="fa" aria-hidden="true">web building</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/win-clean/"><i class="fa" aria-hidden="true">win clean</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wordpress-building/"><i class="fa" aria-hidden="true">wordpress building</i></a><span class="category-list-count">1</span></li></ul>
+</li>
+
+
+    
+    
+<li class="widget widget-normal archive">
+  <h3 class="fa fa-archive widget-title">Archives</h3>
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/"><i class="fa" aria-hidden="true">January 2021</i></a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/"><i class="fa" aria-hidden="true">June 2020</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/"><i class="fa" aria-hidden="true">May 2020</i></a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><i class="fa" aria-hidden="true">April 2020</i></a><span class="archive-list-count">1</span></li></ul>
+</li>
+
+
+    
+    
+<li class="widget widget-normal popular-posts" id="popular-posts">
+    <h3 class="fa fa-thermometer-3 widget-title">Popular Posts</h3>
+    <ul id="popular-content">
+        <li class="load-first"><i class="fa fa-spinner fa-pulse"></i></li>
+    </ul>
+</li>
+
+    
+    
+<li class="widget widget-normal tags">
+  <h3 class="fa fa-tags widget-title">Tag Cloud</h3>
+  <div class="tagcloud-content">
+    
+      <a href="/tags/clean/" style="font-size: 0.2rem; color: #0a407c">clean</a> <a href="/tags/space/" style="font-size: 0.14rem; color: #69c">space</a> <a href="/tags/solution/" style="font-size: 0.2rem; color: #0a407c">solution</a> <a href="/tags/linux/" style="font-size: 0.2rem; color: #0a407c">linux</a> <a href="/tags/delete/" style="font-size: 0.14rem; color: #69c">delete</a> <a href="/tags/Github/" style="font-size: 0.14rem; color: #69c">Github</a> <a href="/tags/register/" style="font-size: 0.14rem; color: #69c">register</a> <a href="/tags/Pages/" style="font-size: 0.14rem; color: #69c">Pages</a> <a href="/tags/vmware/" style="font-size: 0.14rem; color: #69c">vmware</a> <a href="/tags/android/" style="font-size: 0.14rem; color: #69c">android</a> <a href="/tags/system/" style="font-size: 0.14rem; color: #69c">system</a> <a href="/tags/wordpress/" style="font-size: 0.2rem; color: #0a407c">wordpress</a> <a href="/tags/login/" style="font-size: 0.14rem; color: #69c">login</a> <a href="/tags/win/" style="font-size: 0.14rem; color: #69c">win</a> <a href="/tags/web/" style="font-size: 0.2rem; color: #0a407c">web</a> <a href="/tags/php/" style="font-size: 0.14rem; color: #69c">php</a>
+  </div>
+</li>
+
+
+    
+    
+<li class="widget widget-normal friends-link">
+    <h3 class="fa fa-globe widget-title">Friends</h3><br/>
+
+    
+        <a href="https://alvincr.com/friends-chain/" class="fa" target="_blank">Add friends&#39; links</a>
+
+    
+
+</li>
+
+    
+</ul>
+
+
+        <div id="main">
+    <article id="post">
+        <div id="post-header">
+
+            <h1 id="Linux prevention of accidental deletion operations (use safe-rm; use mv command to delete files, accidental deletion recovery method)">
+                
+                Linux prevention of accidental deletion operations (use safe-rm; use mv command to delete files, accidental deletion recovery method)
+                
+            </h1>
+            <div class="article-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+        <span>linux</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+         <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            linux
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta ">2020/06/27</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+            <i class="fa fa-thermometer-three-quarters"></i>
+        <span class="hits hits-meta " data-leadcloud-title="Linux prevention of accidental deletion operations (use safe-rm; use mv command to delete files, accidental deletion recovery method)"
+              data-leadcloud-url="/2020/06/27/Linux%20prevention%20of%20accidental%20deletion%20operations/"><i class="fa fa-spinner fa-spin"></i></span>
+    </span>
+    
+    
+</div>
+
+            
+            
+        </div>
+        
+        <div id="post-body">
+            <h1 id><a href="#" class="headerlink" title></a></h1><p>The update will be included in the original text: <a target="_blank" rel="noopener" href="http://alvincr.com/2020/06/linux%E9%98%B2%E8%AF%AF%E5%88%A0%E6%93%8D%E4%BD%9C%EF%BC%88%E4%BD%BF%E7%94%A8safe-rm%EF%BC%9B%E4%BD%BF%E7%94%A8mv%E5%91%BD%E4%BB%A4%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%EF%BC%89%EF%BC%88%E6%9B%B4/">http://alvincr.com/2020/06/linux%e9%98%b2%e8%af%af%e5%88%a0%e6%93%8d%e4%bd%9c   %ef%bc%88%e4%bd%bf%e7%94%a8safe-rm%ef%bc%9b%e4%bd%bf%e7%94%a8mv%e5%91%bd%e4%bb%a4  %e5%88%a0%e9%99%a4%e6%96%87%e4%bb%b6%ef%bc%89%ef%bc%88%e6%9b%b4/ </a></p>
+<h1 id="1-Why-does-text-based-Linux-have-no-recycle-bin"><a href="#1-Why-does-text-based-Linux-have-no-recycle-bin" class="headerlink" title="1. Why does text-based Linux have no recycle bin?"></a>1. Why does text-based Linux have no recycle bin?</h1><p>In my opinion: </p>
+<p>1.Linux is a command line operating system. Unlike the graphical  interface of win, linux cannot easily recover files quickly. For  example, using mv under linux can achieve the same effect as the recycle bin under win, but no one uses mv+file name+ The path method actually  only needs to create a folder named trash in the root directory, which  can fully realize the function of the recycle bin. What is the specific  reason for not using mv? I personally think that it is because of  inconvenience and use Most Linux users are not computer novices, and  generally know what they are doing. </p>
+<p>\2. When linux deletes a file, if you use rm -r, there will be a  prompt whether to delete it, similar to the simple recycle bin of win10, but it does not store it, but you need to directly confirm whether the  file is deleted. (A lot of materials are taught to use rm -rf when  writing code now) </p>
+<p>Views of others: </p>
+<p>\1. </p>
+<blockquote>
+<p>The tree-shaped file system is not compatible with the recycle bin.  Could it be that the eighteenth-level directories are deleted, and when  restoring from the recycle bin, restore the entire directory structure  again? Most of the things turned out from the trash can in daily life  are useless. It is precisely because the operation of deleting a file  from the computer does not change the content of the file itself, what  is thrown in the trash can can be used again. The problem now is that in fact we only have one form of file system, which is tree-shaped. This  is neither necessary nor convenient for storing personal files. We  should remove the tree file system. Only keep the index function in  BeFS. Deleting a file just marks the file. When the disk space is full, I will prompt you to delete the file.  <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/32294243/answer/135858069">https://www.zhihu.com/question/32294243/answer/135858069</a> </p>
+</blockquote>
+<p>\2. </p>
+<blockquote>
+<p>original: </p>
+<p>I think you may be sadly uninformed about what is and OS and what is a GUI. </p>
+<p>When using the CLI in either Windows or Linux the delete/rm command  does in fact immediately delete a file. And there are utilities that can attempt to recover such files if used immediatel after the mistake  happens. </p>
+<p>Every GUI I have seen in Linux does have a trash can. Linux GUIs I  have seen also come with backup software and if they don’t a script file using rsync isn’t hard to write/find in order to efficiently backup the drives. </p>
+<p>You might read this rather dated article about how to use the trashcan even from the CLI. </p>
+<p><a target="_blank" rel="noopener" href="https://linuxtipstricks.wordpress.com/2009/05/16/how-to-manage-trash-can-or-recycle-bin-in-linux-desktop-graphic-environment/">How to manage Trash can or Recycle bin in Linux Desktop graphic environment </a></p>
+<p>translation: </p>
+<p>When using CLI in Windows or Linux, the delete /rm command actually  does delete the file immediately. And, if the utility is used  immediately after the error occurs, they can try to recover such files. </p>
+<p>Every GUI I see in Linux has a trash can. The Linux GUIs I have seen also come with backup software, if they don’t use rsync to write script files, it’s not difficult to write/find in order to effectively backup  the drive. </p>
+</blockquote>
+<p>\3. The following view is similar to mine </p>
+<blockquote>
+<p>original: </p>
+<p>linux was generally for competent users…you can delete a file and ask for cofirmation rm -i filename. </p>
+<p>also a competent user has backups…so even if most files got removed it would be ok </p>
+<p>but if a library was removed or something like that, then you are in trouble. as you dont back these things up..and it may make your system  unworkable …that said you can easily with a little bit of know how  chroot into your system or you can use a live dvd and reinstall the  library. </p>
+<p>bottom line is once you use linux for a while you will delete required files…but chances are …you will only do this once. </p>
+<p>linux is made to be used from command line and in windows if you  delete something from command line i dont even think there is a dustbin. </p>
+<p>translation: </p>
+<p>Linux is usually suitable for capable users… You can delete files and ask for confirmation rm -i filename. </p>
+<p>A capable user also has backups…so it doesn’t matter even if most files are deleted </p>
+<p>However, if you delete a library or a similar library, you will run  into trouble. Because you do not back up these contents, this may make  your system not work properly… This means that you can easily import  the chroot into the system, or you can use a live DVD and reinstall the  library. </p>
+<p>The most important thing is that once you use linux for a while, you will delete the files you need…but most likely…you will only do it  once. </p>
+<p>Linux is used from the command line, in Windows, if you delete  something from the command line, I don’t even think there is a trash  can. </p>
+</blockquote>
+<h1 id="2-Use-the-safe-rm-package"><a href="#2-Use-the-safe-rm-package" class="headerlink" title="2. Use the safe-rm package"></a>2. Use the safe-rm package</h1><p>It is not recommended for users who are familiar with Linux to use this method, this article only provides ideas </p>
+<p>Safe-rm is a security tool designed to prevent accidental deletion of important files by replacing /bin/rm with a packaging program that will perform a blacklist of configurable files and directories that will  never delete given parameters with an examination. </p>
+<p>wget <a target="_blank" rel="noopener" href="https://launchpad.net/safe-rm/trunk/0.12/+download/safe-rm-0.12.tar.gz">https://launchpad.net/safe-rm/trunk/0.12/+download/safe-rm-0.12.tar.gz</a> </p>
+<p>tar -xzvf safe-rm-0.12.tar.gz </p>
+<p>cd safe-rm-0.12 </p>
+<p>vi /etc/profile You can add the PATH path in the last line: PATH=/usr/local/bin:$PATH </p>
+<p>source /etc/profile </p>
+<p>vi /etc/safe-rm.conf </p>
+<p>Then enter the directory of the folder that needs to be protected </p>
+<p><img src="/2020/06/27/Linux%20prevention%20of%20accidental%20deletion%20operations/aHR0cDovL2FsdmluY3IuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDIwLzA2L2U2MDY0ZmMyNmViYjNjYzBkM2JlODUwODM2ZWU5MTViLnBuZw.png" alt="img"></p>
+<blockquote>
+<p><strong>Note:</strong> Writing this way can prevent the deletion of  common files in the test directory and the test directory, but it cannot prevent the link files in the test directory from being deleted.  Therefore like <code>/lib</code>or <code>/lib64</code>, directories , there will be a lot of link files to library files underneath, and <strong>using <code>safe-rm</code>them does not protect the files</strong> . (Reference:  <a target="_blank" rel="noopener" href="https://linuxgeeks.github.io/2015/11/25/172103-%E4%BD%BF%E7%94%A8safe-rm%E9%81%BF%E5%85%8Drm%E5%">https://linuxgeeks.github.io/2015/11/25/172103-%E4%BD%BF%E7%94%A8safe-rm%E9%81%BF%E5%85%8Drm%E5%</a> 91%BD%E4%BB%A4%E8%AF%AF%E5%88%A0%E6%96%87%E4%BB%B6/, Remarks: The  method of the reference website can be implemented on my machine.  Question, it is not recommended to read the original text) </p>
+</blockquote>
+<h2 id="1-2-Effect"><a href="#1-2-Effect" class="headerlink" title="1.2 Effect:  "></a>1.2 Effect:  <img src="/2020/06/27/Linux%20prevention%20of%20accidental%20deletion%20operations/aHR0cDovL2FsdmluY3IuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDIwLzA2LzMzNGQ2ZmFmNmZiODlkZDEwOTFmMGRkMDQ3M2ViM2NmLnBuZw.png" alt="img"></h2><h1 id="3-Disable-the-rm-command-and-use-the-mv-command-instead"><a href="#3-Disable-the-rm-command-and-use-the-mv-command-instead" class="headerlink" title="3. Disable the rm command and use the mv command instead"></a>3. Disable the rm command and use the mv command instead</h1><p>It is not recommended for users who are familiar with Linux to use this method, this article only provides ideas </p>
+<h1 id="4-Recovery-tool-extundelete"><a href="#4-Recovery-tool-extundelete" class="headerlink" title="4. Recovery tool extundelete"></a>4. Recovery tool extundelete</h1><h2 id="4-1-Recovery-principle"><a href="#4-1-Recovery-principle" class="headerlink" title="4.1 Recovery principle:"></a>4.1 Recovery principle:</h2><blockquote>
+<p>Under Linux, you can use the “ls -id” command to view the inode  value of a file or directory. For example, to view the inode value of  the root directory, you can enter: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@cloud1 ~]# ls -id  &#x2F; 2 &#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>It can be seen that the inode value of the root directory is 2. </p>
+<p>When using extundelete to restore files, it does not rely on a  specific file format. First, extundelete will use the inode information  of the file system (the inode of the root directory is generally 2) to  obtain the information of all files under the current file system,  including existing and deleted files , This information includes file  name and inode. Then use the inode information combined with the log to  query the block location where the inode is located, including direct  block, indirect block and other information. Finally, use the dd command to back up the information to restore the data file. </p>
+</blockquote>
+<p>Reference: <a target="_blank" rel="noopener" href="https://blog.csdn.net/coco3600/article/details/100232811">https://blog.csdn.net/coco3600/article/details/100232811</a> </p>
+<h2 id="4-2-Installation-and-use"><a href="#4-2-Installation-and-use" class="headerlink" title="4.2 Installation and use"></a>4.2 Installation and use</h2><p>Common open source recovery tools are: debugfs, R-Linux, ext3grep,  extundelete, the following is the extundelete operation method </p>
+<blockquote>
+<p><strong>1. Install dependencies</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install e2fsprogs-devel gcc</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. Unzip the toolkit</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar jxf extundelete-0.2.4.tar.bz2</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. Specify the installation directory, compile, compile and install</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure ; make ; make install</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>use</strong> </p>
+<p><strong>Common parameters:</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--after dtime            时间参数，表示在某段时间之后被删除的文件或目录</span><br><span class="line">--before dtime           时间参数，表示在某段时间之前被删除的文件或目录</span><br><span class="line">--inode ino              显示节点 ino 的信息</span><br><span class="line">--block blk              显示数据块 blk 的信息</span><br><span class="line">--restore-inode ino      表示恢复节点 ino 的文件，用来恢复单个文件</span><br><span class="line">--restore-file path      表示恢复指定路径下的文件，用来恢复目录下所有文件</span><br><span class="line">--restore-all            表示恢复所有被删除的目录跟文件</span><br></pre></td></tr></table></figure>
+
+<p><strong>Start the recovery process:</strong> </p>
+<p><strong>1. Find the directory id of the deleted file</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -id &#x2F;xxx&#x2F;xxx&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>Note: The leftmost output is the ID number. </p>
+<p><strong>2. View the deleted upper directory inode</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># extundelete 所在分区名称 --inode ID号</span><br><span class="line">extundelete &#x2F;dev&#x2F;sdb1 --inode 130619</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. Restore data, restore all deleted data in the specified directory</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># extundelete 数据所在分区名称 --restore-directory 恢复数据的目录</span><br><span class="line">extundelete &#x2F;dev&#x2F;sdb1 --restore-directory &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. Complete the follow-up work of recovery</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 恢复数据后，会把恢复数据送到当前路径的RECOVERED_FILES&#x2F;内，再把恢复的数据拿回原处</span><br><span class="line">cp RECOVERED_FILES&#x2F;xxx&#x2F;xxx&#x2F;* &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;</span><br></pre></td></tr></table></figure>
+<p>Method source: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiangsikai/p/10779457.html">https://www.cnblogs.com/xiangsikai/p/10779457.html</a> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiangsikai/p/10779457.html">https://www.cnblogs.com/xiangsikai/p/10779457.html</a> </p>
+</blockquote>
+
+        </div>
+        <div id="post-footer">
+            <div class="avatar" >
+                <img src="https://s3.ax1x.com/2021/01/16/sBTbz4.jpg" alt="avatar"/>
+                
+                
+                <a href="javascript:void(0)" class="donate fa">click here <br> Offer me coffee &#128536;</a>
+                
+            </div>
+            <ul class="author-profile-section">
+                <li>
+                  
+                  Author:
+                  
+                    
+                    <a href="/about.html">AlvinCR</a>
+                </li>
+                
+                <li>Published Date: <span>2020-06-27  20:40:37</span></li>
+                
+                <li>Updated Date: <span>2021-01-16  12:52:40</span></li>
+                
+                <li class="post-category">
+                    Categories:
+                    
+                    <a href="/categories/linux/">linux</a>
+                    
+                </li>
+                <li class="post-tags">
+                    Tags:
+                    
+                    <a href="/tags/linux/">linux</a>
+                    
+                    <a href="/tags/delete/">delete</a>
+                    
+                </li>
+                
+                <li> License: <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank">
+CC BY-NC-ND 3.0
+</a></li>
+                
+            </ul>
+            <div id="donate-wrap">
+                
+                
+                
+                <img src="https://s3.ax1x.com/2021/01/16/sBTDdP.png" alt="Alipay" class="donate-img">
+                
+                <img src="https://s3.ax1x.com/2021/01/16/sBvpxf.png" alt="paypal.me/alvincr27" class="donate-img">
+                
+                
+            </div>
+        </div>
+    </article>
+    <div class="article-nav">
+        
+        <a href="/2021/01/14/module/" class="pre-post fa fa-caret-left"></a>
+        
+        
+        <a href="/2020/05/24/dynamic%20webpages,%20pseudo-static%20and%20static%20/" class="next-post fa">Differences between dynamic webpages, pseudo-static and static webpages and related knowledge</a>
+        
+    </div>
+    
+    <div id="comments">
+        
+
+<script>
+  gitalk.render("comments");
+</script>
+
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+    <footer id="footer">
+    
+    <div class="social">
+        
+        <a href="https://www.example1.com" class="fa fa-free-code-camp" target="_blank" title="freecodecamp"></a>
+        
+        <a href="https://www.example2.com" class="fa fa-github" target="_blank" title="Follow me~"></a>
+        
+    </div>
+    
+    <div>
+        
+        <a href="/" class="copyright-links">AlvinCR</a>&copy;2015 - 2021.All Rights
+        Reserved.
+    </div>
+    <p>Powered by <a href="https://hexo.io" class="copyright-links" target="_blank">Hexo</a> | Theme by <a
+                href="https://github.com/GeekaholicLin" class="copyright-links" target="_blank">GeekaholicLin</a>
+    </p>
+    
+    
+    <p>
+        <span id="busuanzi_container_site_uv" class="fa fa-bar-chart">
+        Welcome to the <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> friend~
+        </span>
+    </p>
+    
+</footer>
+
+</div>
+    <ul id="tools">
+    <li class="totop-btn fa fa-angle-up"></li>
+    <li class="exchange-btn fa fa-exchange"></li>
+  
+    <li class="toc-btn fa fa-list-ul"></li>
+    
+    
+
+    
+</ul>
+<p id="process"></p>
+<div id="search-overlay">
+    <div class="search-area-wrap">
+        <div id="search-area">
+            <div class="input-wrap focus">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input id="search-input" autofocus autocomplete="off" type="text"
+                       placeholder="search this website..."/>
+            </div>
+            <ul id="search-result">
+                <li class="load-first"><i class="fa fa-spinner fa-pulse"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Why-does-text-based-Linux-have-no-recycle-bin"><span class="toc-number">2.</span> <span class="toc-text">1. Why does text-based Linux have no recycle bin?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Use-the-safe-rm-package"><span class="toc-number">3.</span> <span class="toc-text">2. Use the safe-rm package</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Effect"><span class="toc-number">3.1.</span> <span class="toc-text">1.2 Effect:  </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Disable-the-rm-command-and-use-the-mv-command-instead"><span class="toc-number">4.</span> <span class="toc-text">3. Disable the rm command and use the mv command instead</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Recovery-tool-extundelete"><span class="toc-number">5.</span> <span class="toc-text">4. Recovery tool extundelete</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-Recovery-principle"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 Recovery principle:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-Installation-and-use"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 Installation and use</span></a></li></ol></li></ol>
+
+
+
+
+
+<script src="/js/search.js"></script>
+
+<script type="text/javascript">
+    //theme config datas
+    var copyrightObj = {};
+    copyrightObj.enable = 'true';
+    copyrightObj.triggerCopyLength = '200';
+    copyrightObj.appendText = ' For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source © alvincr.com';
+    var leancloudObj = {};
+    leancloudObj.enable = 'true';
+    leancloudObj.className = 'BlogCounter';
+    leancloudObj.limits = '10';
+</script>
+<script type="text/javascript">
+    var search = {};
+    var search_path = "search.xml";
+    if (!search_path) {
+        search_path = "search.xml";
+    }
+    search.path = "/" + search_path;
+    search.func =  _ajax.init();
+</script>
+
+<script src="/js/app.js"></script>
+
+
+
+</body>
+</html>
