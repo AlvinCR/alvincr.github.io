@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2021/01/14/Multiple%20ways%20to%20clean%20up%20redundant%20thumbnails%20on%20your%20site/</loc>
+    
+    <lastmod>2021-01-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/2021/01/14/The-whole-process-of-registering-and-using-GitHub-Pages/</loc>
     
     <lastmod>2021-01-16</lastmod>
@@ -16,14 +23,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2021/01/14/Multiple%20ways%20to%20clean%20up%20redundant%20thumbnails%20on%20your%20site/</loc>
-    
-    <lastmod>2021-01-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/01/14/test/</loc>
+    <loc>http://example.com/2021/01/14/1Multiple%20ways%20to%20clean%20up%20redundant%20thumbnails%20on%20your%20site/</loc>
     
     <lastmod>2021-01-14</lastmod>
     
